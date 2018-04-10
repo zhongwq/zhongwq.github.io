@@ -289,11 +289,32 @@
     牧师与魔鬼 动作分离版
   </a>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="除了加入动作管理器外的改进" class="md-nav__link">
+    除了加入动作管理器外的改进
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="游戏效果" class="md-nav__link">
+    游戏效果
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="建立动作管理器" class="md-nav__link">
+    建立动作管理器
+  </a>
+  
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" title="建立动作管理器的意义" class="md-nav__link">
+  <a href="#_5" title="建立动作管理器的意义" class="md-nav__link">
     建立动作管理器的意义
   </a>
   
@@ -380,11 +401,32 @@
     牧师与魔鬼 动作分离版
   </a>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="除了加入动作管理器外的改进" class="md-nav__link">
+    除了加入动作管理器外的改进
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="游戏效果" class="md-nav__link">
+    游戏效果
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="建立动作管理器" class="md-nav__link">
+    建立动作管理器
+  </a>
+  
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" title="建立动作管理器的意义" class="md-nav__link">
+  <a href="#_5" title="建立动作管理器的意义" class="md-nav__link">
     建立动作管理器的意义
   </a>
   
@@ -451,7 +493,18 @@
 <h2 id="_1">牧师与魔鬼 动作分离版</h2>
 <p>在上一周的编程实践中，我们已经完成了一个具有MVC架构的牧师与魔鬼的版本，而我们这周的任务就是实现一个动作管理器，把我们上周写在GameObjectController和SceneController里的对于GameObject动作的处理写出来，通过一个SceneActionManager的实例来管理，让其专门负责GameObject的动作。下面我们来谈谈动作管理器。</p>
 <hr />
-<h3 id="_2">建立动作管理器的意义</h3>
+<h2 id="_2">除了加入动作管理器外的改进</h2>
+<ul>
+<li>根据上课学到的内容，给Camera加上了SkyBox，美化了程序的UI</li>
+<li>给游戏添加了切换视角的功能，玩家可以根据自己喜好在全局视角以及船只跟随视角之间任意切换，游戏的体验更佳</li>
+</ul>
+<hr />
+<h2 id="_3">游戏效果</h2>
+<p><img alt="all-angle" src="../../img/hw3-all-angle.png" />
+<img alt="boat-angle" src="../../img/hw3-boat-angle.png" /></p>
+<hr />
+<h2 id="_4">建立动作管理器</h2>
+<h3 id="_5">建立动作管理器的意义</h3>
 <p>在上一个版本的简单的牧师与恶魔的游戏中，我为了避免FirstSceneController中对于物体移动操作的代码量过多，把物体的动作封装在GameObjectController里面，通过这种做法，FirstSceneController的代码量的确得到了一定的减少，但是这样的话我每写一个GameObjectController我就要多写一个物体运动的函数，一旦需要移动的GameObject多起来，可能冗余的代码量就会大量增多了，而且一旦我们需要修改Move，我们可能就每一个类都要进行修改了，显然这对于开发者非常不友好。</p>
 <p>这个时候，动作管理器的意义就体现出来了，就以我们这次的作业为例子，Move的一类的动作抽象成一个动作类MoveAction，然后通过ActionManager对其进行管理。我们在需要物体进行移动时，只需要新建一个MoveAction，调用ActionManaer的addAction，把具体的参数传给它，ActionManager就会执行我们的动作，我们再也不用将Move这类的动作一个一个写在我们的GameObjController中，大大减少了我们的代码量，大大提高了我们代码的复用性，一旦动作方面的需求修改，我们也只需要修改该Action类的内容，以及相关调用创建该Action的地方，更加<strong>利于我们的维护以及让程序更能适应需求变化</strong>。</p>
 <hr />
@@ -798,16 +851,6 @@
 </pre></div>
 
 
-<hr />
-<h3 id="_3">改进</h3>
-<ul>
-<li>根据上课学到的内容，给Camera加上了SkyBox，美化了程序的UI</li>
-<li>给游戏添加了切换视角的功能，玩家可以根据自己喜好在全局视角以及船只跟随视角之间任意切换，游戏的体验更佳</li>
-</ul>
-<hr />
-<h3 id="_4">游戏效果</h3>
-<p><img alt="all-angle" src="../../img/hw3-all-angle.png" />
-<img alt="boat-angle" src="../../img/hw3-boat-angle.png" /></p>
 <hr />
 <p>到这里，这周的作业就完成啦，不说了，先去肝现操了(逃🌚</p>
 <p>感谢阅读我的博客！😋</p>
