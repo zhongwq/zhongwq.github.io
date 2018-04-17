@@ -314,6 +314,26 @@
             "location": "/unity3D-learning/\u5b66\u4e60\u7b14\u8bb06-Hit UFO\u7f16\u7a0b\u5b9e\u8df5/#_6", 
             "text": "\u901a\u8fc7\u5b8c\u6210\u8fd9\u4e00\u6b21\u7684\u6e38\u620f\uff0c\u6211\u4f53\u4f1a\u5230\u4e86\u4e4b\u524d\u6211\u4eec\u6240\u5199\u7684MVC\u3001\u52a8\u4f5c\u7ba1\u7406\u5668\u7684\u5de8\u5927\u4f5c\u7528\uff0c\u6709\u4e86\u8fd9\u4e9b\u57fa\u672c\u7684\u67b6\u6784\uff0c\u6211\u4eec\u6e38\u620f\u7684\u5b9e\u73b0\u66f4\u52a0\u7b80\u6613\uff0c\u57fa\u672c\u53ea\u7528\u5b9e\u73b0\u6211\u4eec\u7684\u6e38\u620f\u7269\u4f53\u7684Controller\u3001\u5404\u4e2a\u6e38\u620f\u529f\u80fd\"\u8d1f\u8d23\u4eba\"\u7684Controller\uff0c\u7136\u540e\u901a\u8fc7\u573a\u8bb0\u5bf9\u4e8e\u5404\u4e2aController\u8fdb\u884c\u6574\u5408\uff0c\u6211\u4eec\u5c31\u53ef\u4ee5\u5f97\u5230\u6211\u4eec\u7684\u6574\u4e2a\u6e38\u620f\uff0c\u53ea\u8981\u6211\u4eec\u8bbe\u8ba1\u597d\u4e86\u6211\u4eec\u7684UML\u56fe\uff0c\u6211\u4eec\u5f88\u5feb\u5c31\u53ef\u4ee5\u5b9e\u73b0\u51fa\u6211\u4eec\u7684\u6574\u4e2a\u6e38\u620f\u3002", 
             "title": "\u603b\u7ed3"
+        }, 
+        {
+            "location": "/unity3D-learning/\u5b66\u4e60\u7b14\u8bb07-\u81ea\u5b9a\u4e49Component(Editor)/", 
+            "text": "\u81ea\u5b9a\u4e49Component\n\n\n\u5236\u4f5c\u4e00\u4e2aUnity\u7684Inspector\u754c\u9762\u4e2d\u7684Editor \u64cd\u4f5c\u7ec4\u4ef6\n\n\n\u5236\u4f5c\u8fc7\u7a0b\n\n\n\n\n\u65b0\u5efa\u4e00\u4e2aInspector\u7c7b, \u4e0b\u9762\u7ed9\u51fa\u4e00\u4e2aInspector\u7c7b\u7684\u7b80\u5355\u6837\u4f8b\n\n\n\n\n[CustomEditor(typeof(XX))]\n\n\npublic\n \nclass\n \nxxEditor\n \n:\n \nEditor\n \n{\n\n    \npublic\n \noverride\n \nvoid\n \nOnInspectorGUI\n()\n \n{\n\n        \nvar\n \ntarget\n \n=\n \n(\nXX\n)(\nserializedObject\n.\ntargetObject\n);\n\n        \ntarget\n.\nspeed\n \n=\n \nEditorGUILayout\n.\nSlider\n(\nSpeed\n,\n \ntarget\n.\nspeed\n,\n \n0\n,\n \n100\n);\n\n        \nProgressBar\n(\ntarget\n.\nspeed\n,\n \nSpeed\n);\n\n\n        \ntarget\n.\ncolor\n \n=\n \nEditorGUILayout\n.\nColorField\n(\nColor\n,\n \ntarget\n.\ncolor\n);\n\n    \n}\n\n\n    \nprivate\n \nvoid\n \nProgressBar\n(\nfloat\n \nvalue\n,\n \nstring\n \nlabel\n)\n \n{\n\n        \nRect\n \nrect\n \n=\n \nGUILayoutUtility\n.\nGetRect\n(\n20\n,\n \n20\n,\n \nTextField\n);\n\n        \nEditorGUI\n.\nProgressBar\n(\nrect\n,\n \nvalue\n,\n \nlabel\n);\n\n        \nEditorGUILayout\n.\nSpace\n();\n\n    \n}\n\n\n}\n\n\n\n\n\n\n\n\n\u7136\u540e\uff0c\u6211\u4eec\u53ea\u8981\u628aXX ADD\u5230\u4e00\u4e2aGameObject\u4e0a\uff0cInspector\u4e2d\u5c31\u4f1a\u51fa\u73b0\u6211\u4eec\u521a\u521a\u5199\u7684Editor\u4e86\u3002", 
+            "title": "\u5b66\u4e60\u7b14\u8bb07-\u81ea\u5b9a\u4e49Component(Editor)"
+        }, 
+        {
+            "location": "/unity3D-learning/\u5b66\u4e60\u7b14\u8bb07-\u81ea\u5b9a\u4e49Component(Editor)/#component", 
+            "text": "", 
+            "title": "\u81ea\u5b9a\u4e49Component"
+        }, 
+        {
+            "location": "/unity3D-learning/\u5b66\u4e60\u7b14\u8bb07-\u81ea\u5b9a\u4e49Component(Editor)/#unityinspectoreditor", 
+            "text": "", 
+            "title": "\u5236\u4f5c\u4e00\u4e2aUnity\u7684Inspector\u754c\u9762\u4e2d\u7684Editor \u64cd\u4f5c\u7ec4\u4ef6"
+        }, 
+        {
+            "location": "/unity3D-learning/\u5b66\u4e60\u7b14\u8bb07-\u81ea\u5b9a\u4e49Component(Editor)/#_1", 
+            "text": "\u65b0\u5efa\u4e00\u4e2aInspector\u7c7b, \u4e0b\u9762\u7ed9\u51fa\u4e00\u4e2aInspector\u7c7b\u7684\u7b80\u5355\u6837\u4f8b   [CustomEditor(typeof(XX))]  public   class   xxEditor   :   Editor   { \n     public   override   void   OnInspectorGUI ()   { \n         var   target   =   ( XX )( serializedObject . targetObject ); \n         target . speed   =   EditorGUILayout . Slider ( Speed ,   target . speed ,   0 ,   100 ); \n         ProgressBar ( target . speed ,   Speed ); \n\n         target . color   =   EditorGUILayout . ColorField ( Color ,   target . color ); \n     } \n\n     private   void   ProgressBar ( float   value ,   string   label )   { \n         Rect   rect   =   GUILayoutUtility . GetRect ( 20 ,   20 ,   TextField ); \n         EditorGUI . ProgressBar ( rect ,   value ,   label ); \n         EditorGUILayout . Space (); \n     }  }    \u7136\u540e\uff0c\u6211\u4eec\u53ea\u8981\u628aXX ADD\u5230\u4e00\u4e2aGameObject\u4e0a\uff0cInspector\u4e2d\u5c31\u4f1a\u51fa\u73b0\u6211\u4eec\u521a\u521a\u5199\u7684Editor\u4e86\u3002", 
+            "title": "\u5236\u4f5c\u8fc7\u7a0b"
         }
     ]
 }

@@ -47,6 +47,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>https://zhongwq.github.io/unity3D-learning/学习笔记7-自定义Component(Editor)/</loc>
+     <lastmod>2018-04-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
 </urlset>
