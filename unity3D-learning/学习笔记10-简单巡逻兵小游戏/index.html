@@ -1,0 +1,1167 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="A site for me to put posts.">
+      
+      
+        <link rel="canonical" href="https://zhongwq.github.io/unity3D-learning/学习笔记10-简单巡逻兵小游戏/">
+      
+      
+        <meta name="author" content="Zhong Wenqian">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.3, mkdocs-material-2.7.0">
+    
+    
+      
+        <title>学习笔记10-简单巡逻兵小游戏 - Zhongwq's Site</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.78aab2dc.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.6079476c.css">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <a href="#10-" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://zhongwq.github.io" title="Zhongwq's Site" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Zhongwq's Site
+              </span>
+              <span class="md-header-nav__topic">
+                学习笔记10-简单巡逻兵小游戏
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </span>
+    Zhongwq's Site
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Unity3D-learning
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Unity3D-learning
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记1-GUI井字棋/" title="学习笔记1-GUI井字棋" class="md-nav__link">
+      学习笔记1-GUI井字棋
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记2-物体的空间与运动/" title="学习笔记2-物体的空间与运动" class="md-nav__link">
+      学习笔记2-物体的空间与运动
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记3-Priestss & Devils编程实践/" title="学习笔记3-Priestss & Devils编程实践" class="md-nav__link">
+      学习笔记3-Priestss & Devils编程实践
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记4-游戏对象与图形基础/" title="学习笔记4-游戏对象与图形基础" class="md-nav__link">
+      学习笔记4-游戏对象与图形基础
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记5-Priests & Devils动作分离版/" title="学习笔记5-Priests & Devils动作分离版" class="md-nav__link">
+      学习笔记5-Priests & Devils动作分离版
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记6-Hit UFO编程实践/" title="学习笔记6-Hit UFO编程实践" class="md-nav__link">
+      学习笔记6-Hit UFO编程实践
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记7-自定义Component(Editor)/" title="学习笔记7-自定义Component(Editor)" class="md-nav__link">
+      学习笔记7-自定义Component(Editor)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记8-adapter模式的打飞碟游戏/" title="学习笔记8-adapter模式的打飞碟游戏" class="md-nav__link">
+      学习笔记8-adapter模式的打飞碟游戏
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记9-射箭小游戏/" title="学习笔记9-射箭小游戏" class="md-nav__link">
+      学习笔记9-射箭小游戏
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        学习笔记10-简单巡逻兵小游戏
+      </label>
+    
+    <a href="./" title="学习笔记10-简单巡逻兵小游戏" class="md-nav__link md-nav__link--active">
+      学习笔记10-简单巡逻兵小游戏
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="游戏要求" class="md-nav__link">
+    游戏要求
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="游戏改进、效果、演示视频" class="md-nav__link">
+    游戏改进、效果、演示视频
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="完整代码" class="md-nav__link">
+    完整代码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uml" title="游戏UML图" class="md-nav__link">
+    游戏UML图
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="游戏实现" class="md-nav__link">
+    游戏实现
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#playercontroller" title="PlayerController" class="md-nav__link">
+    PlayerController
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patrol" title="Patrol部分" class="md-nav__link">
+    Patrol部分
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#patrolactionmanager" title="PatrolActionManager" class="md-nav__link">
+    PatrolActionManager
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patrolctrl" title="PatrolCtrl" class="md-nav__link">
+    PatrolCtrl
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="订阅与发布者部分" class="md-nav__link">
+    订阅与发布者部分
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observer" title="Observer" class="md-nav__link">
+    Observer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publisher" title="Publisher" class="md-nav__link">
+    Publisher
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="使用发布者功能的代码" class="md-nav__link">
+    使用发布者功能的代码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="使用订阅者功能的代码" class="md-nav__link">
+    使用订阅者功能的代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scorerecorder" title="ScoreRecorder" class="md-nav__link">
+    ScoreRecorder
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="总结" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="游戏要求" class="md-nav__link">
+    游戏要求
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="游戏改进、效果、演示视频" class="md-nav__link">
+    游戏改进、效果、演示视频
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="完整代码" class="md-nav__link">
+    完整代码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#uml" title="游戏UML图" class="md-nav__link">
+    游戏UML图
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="游戏实现" class="md-nav__link">
+    游戏实现
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#playercontroller" title="PlayerController" class="md-nav__link">
+    PlayerController
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patrol" title="Patrol部分" class="md-nav__link">
+    Patrol部分
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#patrolactionmanager" title="PatrolActionManager" class="md-nav__link">
+    PatrolActionManager
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patrolctrl" title="PatrolCtrl" class="md-nav__link">
+    PatrolCtrl
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="订阅与发布者部分" class="md-nav__link">
+    订阅与发布者部分
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#observer" title="Observer" class="md-nav__link">
+    Observer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publisher" title="Publisher" class="md-nav__link">
+    Publisher
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="使用发布者功能的代码" class="md-nav__link">
+    使用发布者功能的代码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="使用订阅者功能的代码" class="md-nav__link">
+    使用订阅者功能的代码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scorerecorder" title="ScoreRecorder" class="md-nav__link">
+    ScoreRecorder
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="总结" class="md-nav__link">
+    总结
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="10-">学习笔记10-简单巡逻兵小游戏</h1>
+<h2 id="_1">游戏要求</h2>
+<ul>
+<li>游戏规则<ul>
+<li>创建一个地图和若干巡逻兵(使用动画)；</li>
+<li>每个巡逻兵走一个3~5个边的凸多边型，位置数据是相对地址。即每次确定下一个目标位置，用自己当前位置为原点计算；</li>
+<li>巡逻兵碰撞到障碍物，则会自动选下一个点为目标；</li>
+<li>巡逻兵在设定范围内感知到玩家，会自动追击玩家;失去玩家目标后，继续巡逻；</li>
+<li>计分：玩家每次甩掉一个巡逻兵计一分，与巡逻兵碰撞游戏结束；</li>
+</ul>
+</li>
+<li>游戏设计要求<ul>
+<li>必须使用订阅与发布模式传消息</li>
+<li>工厂模式生产巡逻兵</li>
+</ul>
+</li>
+</ul>
+<h2 id="_2">游戏改进、效果、演示视频</h2>
+<p>改进部分实现了用户视角的可切换(按"space"切换)，且交互方式随视角变化，增强了游戏的交互性。
+<img alt="tpp" src="../media/15260071942279/tpp.png" />
+<img alt="fushi" src="../media/15260071942279/fushi.png" /></p>
+<p><a href="http://v.youku.com/v_show/id_XMzU5ODk5MjQwOA==.html?spm=a2h3j.8428770.3416059.1">演示视频</a></p>
+<h2 id="_3">完整代码</h2>
+<p><a href="https://github.com/zhongwq/Unity3D-Learning/tree/master/Homework6">github@zhongwq/Unity3D-Learning/Homework6</a></p>
+<h2 id="uml">游戏UML图</h2>
+<p><img alt="h" src="../media/15260071942279/hw6.png" /></p>
+<h2 id="_4">游戏实现</h2>
+<h3 id="playercontroller">PlayerController</h3>
+<p>PlayerController主要实现的是用户控制玩家，以及调用发布者在事件触发时发布消息</p>
+<div class="codehilite"><pre><span></span><span class="k">public</span> <span class="k">class</span> <span class="nc">PlayerController</span> <span class="p">:</span> <span class="n">MonoBehaviour</span> <span class="p">{</span>
+
+    <span class="k">public</span> <span class="n">Camera</span> <span class="n">subCamera</span><span class="p">;</span>
+    <span class="k">private</span> <span class="n">Animator</span> <span class="n">animator</span><span class="p">;</span>
+    <span class="k">private</span> <span class="n">AnimatorStateInfo</span> <span class="n">stateInfo</span><span class="p">;</span>
+
+    <span class="k">private</span> <span class="n">Vector3</span> <span class="n">velocity</span><span class="p">;</span>
+    <span class="k">private</span> <span class="kt">int</span> <span class="n">angle</span><span class="p">;</span>
+
+    <span class="k">private</span> <span class="kt">float</span> <span class="n">rotateSpeed</span> <span class="p">=</span> <span class="m">15f</span><span class="p">;</span>
+    <span class="k">private</span> <span class="kt">float</span> <span class="n">rotateSpeed_Sub</span> <span class="p">=</span> <span class="m">60f</span><span class="p">;</span>
+    <span class="k">private</span> <span class="kt">float</span> <span class="n">runSpeed</span> <span class="p">=</span> <span class="m">3f</span><span class="p">;</span>
+
+    <span class="c1">// Use this for initialization</span>
+    <span class="k">void</span> <span class="nf">Start</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="n">animator</span> <span class="p">=</span> <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Animator</span><span class="p">&gt;</span> <span class="p">();</span>
+        <span class="n">angle</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">void</span> <span class="nf">OnTriggerEnter</span><span class="p">(</span><span class="n">Collider</span> <span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 进入被监控的Area则发布信息</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">CompareTag</span> <span class="p">(</span><span class="s">&quot;Area&quot;</span><span class="p">))</span> <span class="p">{</span>
+            <span class="n">Publisher</span> <span class="n">publish</span> <span class="p">=</span> <span class="n">Publisher</span><span class="p">.</span><span class="n">getInstance</span> <span class="p">();</span>
+            <span class="kt">int</span> <span class="n">areaIndex</span> <span class="p">=</span> <span class="n">other</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">name</span><span class="p">[</span><span class="n">other</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">name</span><span class="p">.</span><span class="n">Length</span><span class="p">-</span><span class="m">1</span><span class="p">]-</span><span class="sc">&#39;0&#39;</span><span class="p">;</span>
+            <span class="n">publish</span><span class="p">.</span><span class="n">notify</span> <span class="p">(</span><span class="n">ActionType</span><span class="p">.</span><span class="n">ENTER</span><span class="p">,</span> <span class="n">areaIndex</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">gameObject</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">void</span> <span class="nf">OnCollisionEnter</span><span class="p">(</span><span class="n">Collision</span> <span class="n">collision</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 与Patrol碰撞后发布信息</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">collision</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">CompareTag</span> <span class="p">(</span><span class="s">&quot;Patrol&quot;</span><span class="p">)</span> <span class="p">&amp;&amp;</span> <span class="n">animator</span><span class="p">.</span><span class="n">GetBool</span> <span class="p">(</span><span class="s">&quot;live&quot;</span><span class="p">))</span> <span class="p">{</span>
+            <span class="n">animator</span><span class="p">.</span><span class="n">SetBool</span> <span class="p">(</span><span class="s">&quot;live&quot;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+            <span class="n">Publisher</span> <span class="n">publish</span> <span class="p">=</span> <span class="n">Publisher</span><span class="p">.</span><span class="n">getInstance</span> <span class="p">();</span>
+            <span class="n">publish</span><span class="p">.</span><span class="n">notify</span> <span class="p">(</span><span class="n">ActionType</span><span class="p">.</span><span class="n">DEAD</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="k">null</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Update is called once per frame</span>
+    <span class="k">void</span> <span class="nf">FixedUpdate</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// 当用户按下空格，改变游戏视角，通过改变子摄像头的深度实现</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">Input</span><span class="p">.</span><span class="n">GetKeyDown</span> <span class="p">(</span><span class="s">&quot;space&quot;</span><span class="p">))</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">angle</span> <span class="p">==</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">subCamera</span><span class="p">.</span><span class="n">depth</span> <span class="p">=</span> <span class="p">-</span><span class="m">1</span><span class="p">;</span>
+                <span class="n">angle</span> <span class="p">=</span> <span class="m">3</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">angle</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+                <span class="n">subCamera</span><span class="p">.</span><span class="n">depth</span> <span class="p">=</span> <span class="p">-</span><span class="m">2</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(!</span><span class="n">animator</span><span class="p">.</span><span class="n">GetBool</span> <span class="p">(</span><span class="s">&quot;live&quot;</span><span class="p">))</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="kt">float</span> <span class="n">x</span> <span class="p">=</span> <span class="n">Input</span><span class="p">.</span><span class="n">GetAxis</span> <span class="p">(</span><span class="s">&quot;Horizontal&quot;</span><span class="p">);</span>
+        <span class="kt">float</span> <span class="n">z</span> <span class="p">=</span> <span class="n">Input</span><span class="p">.</span><span class="n">GetAxis</span> <span class="p">(</span><span class="s">&quot;Vertical&quot;</span><span class="p">);</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="p">==</span> <span class="m">0</span> <span class="p">&amp;&amp;</span> <span class="n">z</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">animator</span><span class="p">.</span><span class="n">SetBool</span> <span class="p">(</span><span class="s">&quot;Run&quot;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">angle</span> <span class="p">==</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
+                <span class="c1">// 俯视视角的交互方式（WSAD分别为上下左右）</span>
+                <span class="n">animator</span><span class="p">.</span><span class="n">SetBool</span> <span class="p">(</span><span class="s">&quot;Run&quot;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+                <span class="n">velocity</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">z</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="p">!=</span> <span class="m">0</span> <span class="p">||</span> <span class="n">z</span> <span class="p">!=</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">Quaternion</span> <span class="n">rotation</span> <span class="p">=</span> <span class="n">Quaternion</span><span class="p">.</span><span class="n">LookRotation</span> <span class="p">(</span><span class="n">velocity</span><span class="p">);</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">transform</span><span class="p">.</span><span class="n">rotation</span> <span class="p">!=</span> <span class="n">rotation</span><span class="p">)</span>
+                        <span class="n">transform</span><span class="p">.</span><span class="n">rotation</span> <span class="p">=</span> <span class="n">Quaternion</span><span class="p">.</span><span class="n">Slerp</span> <span class="p">(</span><span class="n">transform</span><span class="p">.</span><span class="n">rotation</span><span class="p">,</span> <span class="n">rotation</span><span class="p">,</span> <span class="n">Time</span><span class="p">.</span><span class="n">fixedDeltaTime</span> <span class="p">*</span> <span class="n">rotateSpeed</span><span class="p">);</span>
+                <span class="p">}</span>
+
+                <span class="k">this</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">+=</span> <span class="n">velocity</span> <span class="p">*</span> <span class="n">Time</span><span class="p">.</span><span class="n">fixedDeltaTime</span> <span class="p">*</span> <span class="n">runSpeed</span><span class="p">;</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="c1">// 第三人称视角的交互方式(WS前进、后退, AD左右旋转方向)</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">z</span> <span class="p">!=</span> <span class="m">0</span><span class="p">)</span>
+                    <span class="n">animator</span><span class="p">.</span><span class="n">SetBool</span> <span class="p">(</span><span class="s">&quot;Run&quot;</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+                <span class="n">transform</span><span class="p">.</span><span class="n">Translate</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">z</span> <span class="p">*</span> <span class="n">runSpeed</span> <span class="p">*</span> <span class="n">Time</span><span class="p">.</span><span class="n">fixedDeltaTime</span><span class="p">);</span>
+                <span class="n">transform</span><span class="p">.</span><span class="n">Rotate</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="n">x</span> <span class="p">*</span> <span class="n">rotateSpeed_Sub</span> <span class="p">*</span> <span class="n">Time</span><span class="p">.</span><span class="n">fixedDeltaTime</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="c1">// 避免碰撞带来的影响</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">transform</span><span class="p">.</span><span class="n">localEulerAngles</span><span class="p">.</span><span class="n">x</span> <span class="p">!=</span> <span class="m">0</span> <span class="p">||</span> <span class="n">transform</span><span class="p">.</span><span class="n">localEulerAngles</span><span class="p">.</span><span class="n">z</span> <span class="p">!=</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">transform</span><span class="p">.</span><span class="n">localEulerAngles</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span> <span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="n">transform</span><span class="p">.</span><span class="n">localEulerAngles</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
+        <span class="p">}</span> 
+        <span class="k">if</span> <span class="p">(</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="p">!=</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span> <span class="p">(</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">z</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h3 id="patrol">Patrol部分</h3>
+<h4 id="patrolactionmanager">PatrolActionManager</h4>
+<p>这里主要就是提供给PatrolCrtl的动作管理器，方便了PatrolCrtl对于Patrol动作的添加、删除，而每次创建动作都会返回创建的动作作为PatrolCrtl的currentAction方便其对其进行销毁,无需再交给动作管理器销毁，那样还增加了遍历的开销。
+各Action的实现十分简单，这里不多赘述，完整代码可见Github</p>
+<div class="codehilite"><pre><span></span><span class="k">public</span> <span class="k">class</span> <span class="nc">PatrolActionManager</span> <span class="p">:</span> <span class="n">SSActionManager</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="n">IdleAction</span> <span class="nf">toIdle</span><span class="p">(</span><span class="n">GameObject</span> <span class="n">obj</span><span class="p">,</span> <span class="n">Animator</span> <span class="n">animator</span><span class="p">,</span> <span class="n">ActionCallback</span> <span class="n">callback</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">IdleAction</span> <span class="n">tmp</span> <span class="p">=</span> <span class="n">IdleAction</span><span class="p">.</span><span class="n">GetIdleAction</span> <span class="p">(</span><span class="n">Random</span><span class="p">.</span><span class="n">Range</span> <span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">2</span><span class="p">),</span> <span class="n">animator</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">addAction</span> <span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">callback</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">tmp</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="n">WalkAction</span> <span class="nf">toLeft</span><span class="p">(</span><span class="n">GameObject</span> <span class="n">obj</span><span class="p">,</span> <span class="n">Animator</span> <span class="n">animator</span><span class="p">,</span> <span class="n">ActionCallback</span> <span class="n">callback</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Vector3</span> <span class="n">target</span> <span class="p">=</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">left</span> <span class="p">*</span> <span class="n">Random</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">)</span> <span class="p">+</span> <span class="n">obj</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">;</span>
+        <span class="n">WalkAction</span> <span class="n">tmp</span> <span class="p">=</span> <span class="n">WalkAction</span><span class="p">.</span><span class="n">GetWalkAction</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="m">1.0f</span><span class="p">,</span> <span class="n">animator</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">addAction</span> <span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">callback</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">tmp</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="n">WalkAction</span> <span class="nf">toRight</span><span class="p">(</span><span class="n">GameObject</span> <span class="n">obj</span><span class="p">,</span> <span class="n">Animator</span> <span class="n">animator</span><span class="p">,</span> <span class="n">ActionCallback</span> <span class="n">callback</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Vector3</span> <span class="n">target</span> <span class="p">=</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">right</span> <span class="p">*</span> <span class="n">Random</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">)</span> <span class="p">+</span> <span class="n">obj</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">;</span>
+        <span class="n">WalkAction</span> <span class="n">tmp</span> <span class="p">=</span> <span class="n">WalkAction</span><span class="p">.</span><span class="n">GetWalkAction</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="m">1.0f</span><span class="p">,</span> <span class="n">animator</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">addAction</span> <span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">callback</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">tmp</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="n">WalkAction</span> <span class="nf">toForward</span><span class="p">(</span><span class="n">GameObject</span> <span class="n">obj</span><span class="p">,</span> <span class="n">Animator</span> <span class="n">animator</span><span class="p">,</span> <span class="n">ActionCallback</span> <span class="n">callback</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Vector3</span> <span class="n">target</span> <span class="p">=</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">forward</span> <span class="p">*</span> <span class="n">Random</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">)</span> <span class="p">+</span> <span class="n">obj</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">;</span>
+        <span class="n">WalkAction</span> <span class="n">tmp</span> <span class="p">=</span> <span class="n">WalkAction</span><span class="p">.</span><span class="n">GetWalkAction</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="m">1.0f</span><span class="p">,</span> <span class="n">animator</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">addAction</span> <span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">callback</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">tmp</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="n">WalkAction</span> <span class="nf">toBack</span><span class="p">(</span><span class="n">GameObject</span> <span class="n">obj</span><span class="p">,</span> <span class="n">Animator</span> <span class="n">animator</span><span class="p">,</span> <span class="n">ActionCallback</span> <span class="n">callback</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">Vector3</span> <span class="n">target</span> <span class="p">=</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">back</span> <span class="p">*</span> <span class="n">Random</span><span class="p">.</span><span class="n">Range</span><span class="p">(</span><span class="m">2</span><span class="p">,</span> <span class="m">4</span><span class="p">)</span> <span class="p">+</span> <span class="n">obj</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">;</span>
+        <span class="n">WalkAction</span> <span class="n">tmp</span> <span class="p">=</span> <span class="n">WalkAction</span><span class="p">.</span><span class="n">GetWalkAction</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="m">1.0f</span><span class="p">,</span> <span class="n">animator</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">addAction</span> <span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">callback</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">tmp</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="n">RunAction</span> <span class="nf">getTarget</span><span class="p">(</span><span class="n">GameObject</span> <span class="n">player</span><span class="p">,</span> <span class="n">GameObject</span> <span class="n">obj</span><span class="p">,</span> <span class="n">Animator</span> <span class="n">animator</span><span class="p">,</span> <span class="n">ActionCallback</span> <span class="n">callback</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">RunAction</span> <span class="n">tmp</span> <span class="p">=</span> <span class="n">RunAction</span><span class="p">.</span><span class="n">GetRunAction</span> <span class="p">(</span><span class="n">player</span><span class="p">.</span><span class="n">transform</span><span class="p">,</span> <span class="m">2.0f</span><span class="p">,</span> <span class="n">animator</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">addAction</span> <span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">callback</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">tmp</span><span class="p">;</span>
+    <span class="p">}</span>
+
+
+
+    <span class="k">public</span> <span class="n">IdleAction</span> <span class="nf">Stop</span><span class="p">(</span><span class="n">GameObject</span> <span class="n">obj</span><span class="p">,</span> <span class="n">Animator</span> <span class="n">animator</span><span class="p">,</span> <span class="n">ActionCallback</span> <span class="n">callback</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">IdleAction</span> <span class="n">tmp</span> <span class="p">=</span> <span class="n">IdleAction</span><span class="p">.</span><span class="n">GetIdleAction</span> <span class="p">(-</span><span class="m">1f</span><span class="p">,</span> <span class="n">animator</span><span class="p">);</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">addAction</span> <span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">callback</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">tmp</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h4 id="patrolctrl">PatrolCtrl</h4>
+<p>这个类主要作用就是绑在Patrol上，控制Patrol的动作，并作为一个Observer监听事件，执行相应动作。</p>
+<div class="codehilite"><pre><span></span><span class="k">public</span> <span class="k">class</span> <span class="nc">PatrolCtrl</span> <span class="p">:</span> <span class="n">MonoBehaviour</span><span class="p">,</span> <span class="n">ActionCallback</span><span class="p">,</span> <span class="n">Observer</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">enum</span> <span class="n">ActionStatus</span><span class="p">:</span> <span class="kt">int</span> <span class="p">{</span> <span class="n">IDLE</span><span class="p">,</span> <span class="n">TOLEFT</span><span class="p">,</span> <span class="n">TOFORWARD</span><span class="p">,</span> <span class="n">TORIGHT</span><span class="p">,</span> <span class="n">TOBACK</span> <span class="p">}</span>
+
+    <span class="k">private</span> <span class="n">Animator</span> <span class="n">animator</span><span class="p">;</span>
+    <span class="k">private</span> <span class="n">SSAction</span> <span class="n">currentAction</span><span class="p">;</span>
+    <span class="k">private</span> <span class="n">ActionStatus</span> <span class="n">status</span><span class="p">;</span>
+    <span class="k">private</span> <span class="n">PatrolActionManager</span> <span class="n">patrolActionManager</span><span class="p">;</span>
+
+    <span class="c1">// Use this for initialization</span>
+    <span class="k">void</span> <span class="nf">Start</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="n">animator</span> <span class="p">=</span> <span class="k">this</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Animator</span><span class="p">&gt;</span> <span class="p">();</span>
+        <span class="n">patrolActionManager</span> <span class="p">=</span> <span class="n">Singleton</span><span class="p">&lt;</span><span class="n">PatrolActionManager</span><span class="p">&gt;.</span><span class="n">Instance</span><span class="p">;</span>
+        <span class="n">Publisher</span> <span class="n">publisher</span> <span class="p">=</span> <span class="n">Publisher</span><span class="p">.</span><span class="n">getInstance</span> <span class="p">();</span>
+        <span class="n">publisher</span><span class="p">.</span><span class="k">add</span> <span class="p">(</span><span class="k">this</span><span class="p">);</span>
+
+        <span class="n">status</span> <span class="p">=</span> <span class="n">ActionStatus</span><span class="p">.</span><span class="n">IDLE</span><span class="p">;</span>
+
+        <span class="n">currentAction</span> <span class="p">=</span> <span class="n">patrolActionManager</span><span class="p">.</span><span class="n">toIdle</span> <span class="p">(</span><span class="n">gameObject</span><span class="p">,</span> <span class="n">animator</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">void</span> <span class="nf">FixedUpdate</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">transform</span><span class="p">.</span><span class="n">localEulerAngles</span><span class="p">.</span><span class="n">x</span> <span class="p">!=</span> <span class="m">0</span> <span class="p">||</span> <span class="n">transform</span><span class="p">.</span><span class="n">localEulerAngles</span><span class="p">.</span><span class="n">z</span> <span class="p">!=</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">transform</span><span class="p">.</span><span class="n">localEulerAngles</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="n">transform</span><span class="p">.</span><span class="n">localEulerAngles</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">y</span> <span class="p">!=</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span><span class="p">(</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">z</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">gameObject</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Rigidbody</span><span class="p">&gt;().</span><span class="n">velocity</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="m">0</span><span class="p">);</span>  
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">initial</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="n">status</span> <span class="p">=</span> <span class="n">ActionStatus</span><span class="p">.</span><span class="n">IDLE</span><span class="p">;</span>
+        <span class="n">currentAction</span> <span class="p">=</span> <span class="n">patrolActionManager</span><span class="p">.</span><span class="n">toIdle</span> <span class="p">(</span><span class="n">gameObject</span><span class="p">,</span> <span class="n">animator</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">removeAction</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">currentAction</span><span class="p">)</span>
+            <span class="n">currentAction</span><span class="p">.</span><span class="n">destroy</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// When action done do next action</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">actionDone</span> <span class="p">(</span><span class="n">SSAction</span> <span class="n">source</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">status</span> <span class="p">=</span> <span class="n">status</span> <span class="p">==</span> <span class="n">ActionStatus</span><span class="p">.</span><span class="n">TOBACK</span> <span class="p">?</span> <span class="n">ActionStatus</span><span class="p">.</span><span class="n">TOLEFT</span><span class="p">:</span> <span class="p">(</span><span class="n">ActionStatus</span><span class="p">)((</span><span class="kt">int</span><span class="p">)</span><span class="n">status</span> <span class="p">+</span> <span class="m">1</span><span class="p">);</span>
+        <span class="k">switch</span> <span class="p">(</span><span class="n">status</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">case</span> <span class="n">ActionStatus</span><span class="p">.</span><span class="n">TOLEFT</span><span class="p">:</span>
+                <span class="n">currentAction</span> <span class="p">=</span> <span class="n">patrolActionManager</span><span class="p">.</span><span class="n">toLeft</span> <span class="p">(</span><span class="n">gameObject</span><span class="p">,</span> <span class="n">animator</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="n">ActionStatus</span><span class="p">.</span><span class="n">TORIGHT</span><span class="p">:</span>
+                <span class="n">currentAction</span> <span class="p">=</span> <span class="n">patrolActionManager</span><span class="p">.</span><span class="n">toRight</span> <span class="p">(</span><span class="n">gameObject</span><span class="p">,</span> <span class="n">animator</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="n">ActionStatus</span><span class="p">.</span><span class="n">TOFORWARD</span><span class="p">:</span>
+                <span class="n">currentAction</span> <span class="p">=</span> <span class="n">patrolActionManager</span><span class="p">.</span><span class="n">toForward</span> <span class="p">(</span><span class="n">gameObject</span><span class="p">,</span> <span class="n">animator</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="n">ActionStatus</span><span class="p">.</span><span class="n">TOBACK</span><span class="p">:</span>
+                <span class="n">currentAction</span> <span class="p">=</span> <span class="n">patrolActionManager</span><span class="p">.</span><span class="n">toBack</span> <span class="p">(</span><span class="n">gameObject</span><span class="p">,</span> <span class="n">animator</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">turn</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="n">currentAction</span><span class="p">.</span><span class="n">destroy</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+        <span class="k">switch</span> <span class="p">(</span><span class="n">status</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">case</span> <span class="n">ActionStatus</span><span class="p">.</span><span class="n">TOLEFT</span><span class="p">:</span>
+                <span class="n">status</span> <span class="p">=</span> <span class="n">ActionStatus</span><span class="p">.</span><span class="n">TORIGHT</span><span class="p">;</span>
+                <span class="n">currentAction</span> <span class="p">=</span> <span class="n">patrolActionManager</span><span class="p">.</span><span class="n">toRight</span> <span class="p">(</span><span class="n">gameObject</span><span class="p">,</span> <span class="n">animator</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="n">ActionStatus</span><span class="p">.</span><span class="n">TORIGHT</span><span class="p">:</span>
+                <span class="n">status</span> <span class="p">=</span> <span class="n">ActionStatus</span><span class="p">.</span><span class="n">TOLEFT</span><span class="p">;</span>
+                <span class="n">currentAction</span> <span class="p">=</span> <span class="n">patrolActionManager</span><span class="p">.</span><span class="n">toLeft</span> <span class="p">(</span><span class="n">gameObject</span><span class="p">,</span> <span class="n">animator</span><span class="p">,</span> <span class="k">this</span><span class="p">);;</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="n">ActionStatus</span><span class="p">.</span><span class="n">TOFORWARD</span><span class="p">:</span>
+                <span class="n">status</span> <span class="p">=</span> <span class="n">ActionStatus</span><span class="p">.</span><span class="n">TOBACK</span><span class="p">;</span>
+                <span class="n">currentAction</span> <span class="p">=</span> <span class="n">patrolActionManager</span><span class="p">.</span><span class="n">toBack</span> <span class="p">(</span><span class="n">gameObject</span><span class="p">,</span> <span class="n">animator</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="n">ActionStatus</span><span class="p">.</span><span class="n">TOBACK</span><span class="p">:</span>
+                <span class="n">status</span> <span class="p">=</span> <span class="n">ActionStatus</span><span class="p">.</span><span class="n">TOFORWARD</span><span class="p">;</span>
+                <span class="n">currentAction</span> <span class="p">=</span> <span class="n">patrolActionManager</span><span class="p">.</span><span class="n">toForward</span> <span class="p">(</span><span class="n">gameObject</span><span class="p">,</span> <span class="n">animator</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">OnCollisionEnter</span> <span class="p">(</span><span class="n">Collision</span> <span class="n">collision</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">collision</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">CompareTag</span> <span class="p">(</span><span class="s">&quot;Wall&quot;</span><span class="p">))</span>
+            <span class="n">turn</span> <span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="k">void</span> <span class="nf">OnTriggerEnter</span> <span class="p">(</span><span class="n">Collider</span> <span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">CompareTag</span> <span class="p">(</span><span class="s">&quot;Door&quot;</span><span class="p">))</span>
+            <span class="n">turn</span> <span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">notified</span> <span class="p">(</span><span class="n">ActionType</span> <span class="n">type</span><span class="p">,</span> <span class="kt">int</span> <span class="n">position</span><span class="p">,</span> <span class="n">GameObject</span> <span class="n">actor</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">type</span> <span class="p">==</span> <span class="n">ActionType</span><span class="p">.</span><span class="n">ENTER</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">position</span> <span class="p">==</span> <span class="k">this</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">name</span> <span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">name</span><span class="p">.</span><span class="n">Length</span> <span class="p">-</span> <span class="m">1</span><span class="p">]</span> <span class="p">-</span> <span class="sc">&#39;0&#39;</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">currentAction</span><span class="p">.</span><span class="n">destroy</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+                <span class="n">currentAction</span> <span class="p">=</span> <span class="n">patrolActionManager</span><span class="p">.</span><span class="n">getTarget</span> <span class="p">(</span><span class="n">actor</span><span class="p">,</span> <span class="n">gameObject</span><span class="p">,</span> <span class="n">animator</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">currentAction</span> <span class="p">=</span> <span class="n">patrolActionManager</span><span class="p">.</span><span class="n">Stop</span> <span class="p">(</span><span class="n">gameObject</span><span class="p">,</span> <span class="n">animator</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h3 id="_5">订阅与发布者部分</h3>
+<p>订阅者和发布者的实现方式如下，作为订阅者的类只需要继承Observer并实现其中的接口即可作为订阅者发挥作用。</p>
+<p><strong>订阅者和发布者这种模式的主要作用我个人觉得是方便实现组件的分离，并实现分离后组件的耦合，避免了多个功能写在一个类中，抑或是需要手动绑定多个类的情况，使得我们程序代码更加简洁，程序结构更加清晰易于理解</strong></p>
+<h4 id="observer">Observer</h4>
+<div class="codehilite"><pre><span></span><span class="k">public</span> <span class="k">interface</span> <span class="n">Observer</span> <span class="p">{</span>
+    <span class="k">void</span> <span class="nf">notified</span> <span class="p">(</span><span class="n">ActionType</span> <span class="n">type</span><span class="p">,</span> <span class="kt">int</span> <span class="n">position</span><span class="p">,</span> <span class="n">GameObject</span> <span class="n">actor</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h4 id="publisher">Publisher</h4>
+<div class="codehilite"><pre><span></span><span class="k">public</span> <span class="k">enum</span> <span class="n">ActionType</span> <span class="p">{</span> <span class="n">ENTER</span><span class="p">,</span> <span class="n">EXIT</span><span class="p">,</span> <span class="n">DEAD</span> <span class="p">}</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">Publisher</span> <span class="p">{</span>
+    <span class="k">private</span> <span class="k">delegate</span> <span class="k">void</span> <span class="nf">ActionUpdate</span><span class="p">(</span><span class="n">ActionType</span> <span class="n">type</span><span class="p">,</span> <span class="kt">int</span> <span class="n">position</span><span class="p">,</span> <span class="n">GameObject</span> <span class="n">actor</span><span class="p">);</span>
+    <span class="k">private</span> <span class="n">ActionUpdate</span> <span class="n">updateList</span><span class="p">;</span>
+
+    <span class="k">private</span> <span class="k">static</span> <span class="n">Publisher</span> <span class="n">_instance</span><span class="p">;</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="n">Publisher</span> <span class="nf">getInstance</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">_instance</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+            <span class="n">_instance</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Publisher</span><span class="p">();</span>
+        <span class="k">return</span> <span class="n">_instance</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">notify</span><span class="p">(</span><span class="n">ActionType</span> <span class="n">type</span><span class="p">,</span> <span class="kt">int</span> <span class="n">position</span><span class="p">,</span> <span class="n">GameObject</span> <span class="n">actor</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">updateList</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span> 
+            <span class="n">updateList</span><span class="p">(</span><span class="n">type</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">actor</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">add</span><span class="p">(</span><span class="n">Observer</span> <span class="n">observer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">updateList</span> <span class="p">+=</span> <span class="n">observer</span><span class="p">.</span><span class="n">notified</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">delete</span><span class="p">(</span><span class="n">Observer</span> <span class="n">observer</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">updateList</span> <span class="p">-=</span> <span class="n">observer</span><span class="p">.</span><span class="n">notified</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h4 id="_6">使用发布者功能的代码</h4>
+<div class="codehilite"><pre><span></span><span class="k">void</span> <span class="nf">OnTriggerEnter</span><span class="p">(</span><span class="n">Collider</span> <span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 进入被监控的Area则发布信息</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">CompareTag</span> <span class="p">(</span><span class="s">&quot;Area&quot;</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">Publisher</span> <span class="n">publish</span> <span class="p">=</span> <span class="n">Publisher</span><span class="p">.</span><span class="n">getInstance</span> <span class="p">();</span>
+        <span class="kt">int</span> <span class="n">areaIndex</span> <span class="p">=</span> <span class="n">other</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">name</span><span class="p">[</span><span class="n">other</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">name</span><span class="p">.</span><span class="n">Length</span><span class="p">-</span><span class="m">1</span><span class="p">]-</span><span class="sc">&#39;0&#39;</span><span class="p">;</span>
+        <span class="n">publish</span><span class="p">.</span><span class="n">notify</span> <span class="p">(</span><span class="n">ActionType</span><span class="p">.</span><span class="n">ENTER</span><span class="p">,</span> <span class="n">areaIndex</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">gameObject</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">void</span> <span class="nf">OnTriggerExit</span><span class="p">(</span><span class="n">Collider</span> <span class="n">other</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 逃离时发布信息</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">other</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">CompareTag</span> <span class="p">(</span><span class="s">&quot;Area&quot;</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">Publisher</span> <span class="n">publish</span> <span class="p">=</span> <span class="n">Publisher</span><span class="p">.</span><span class="n">getInstance</span> <span class="p">();</span>
+        <span class="n">publish</span><span class="p">.</span><span class="n">notify</span> <span class="p">(</span><span class="n">ActionType</span><span class="p">.</span><span class="n">EXIT</span><span class="p">,</span> <span class="p">-</span><span class="m">1</span><span class="p">,</span> <span class="k">this</span><span class="p">.</span><span class="n">gameObject</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">void</span> <span class="nf">OnCollisionEnter</span><span class="p">(</span><span class="n">Collision</span> <span class="n">collision</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 与Patrol碰撞后发布信息</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">collision</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">CompareTag</span> <span class="p">(</span><span class="s">&quot;Patrol&quot;</span><span class="p">)</span> <span class="p">&amp;&amp;</span> <span class="n">animator</span><span class="p">.</span><span class="n">GetBool</span> <span class="p">(</span><span class="s">&quot;live&quot;</span><span class="p">))</span> <span class="p">{</span>
+        <span class="n">animator</span><span class="p">.</span><span class="n">SetBool</span> <span class="p">(</span><span class="s">&quot;live&quot;</span><span class="p">,</span> <span class="k">false</span><span class="p">);</span>
+        <span class="n">Publisher</span> <span class="n">publish</span> <span class="p">=</span> <span class="n">Publisher</span><span class="p">.</span><span class="n">getInstance</span> <span class="p">();</span>
+        <span class="n">publish</span><span class="p">.</span><span class="n">notify</span> <span class="p">(</span><span class="n">ActionType</span><span class="p">.</span><span class="n">DEAD</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="k">null</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h4 id="_7">使用订阅者功能的代码</h4>
+<div class="codehilite"><pre><span></span><span class="c1">// PatrolCtrl.cs</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">notified</span> <span class="p">(</span><span class="n">ActionType</span> <span class="n">type</span><span class="p">,</span> <span class="kt">int</span> <span class="n">position</span><span class="p">,</span> <span class="n">GameObject</span> <span class="n">actor</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">type</span> <span class="p">==</span> <span class="n">ActionType</span><span class="p">.</span><span class="n">ENTER</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">position</span> <span class="p">==</span> <span class="k">this</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">name</span> <span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">name</span><span class="p">.</span><span class="n">Length</span> <span class="p">-</span> <span class="m">1</span><span class="p">]</span> <span class="p">-</span> <span class="sc">&#39;0&#39;</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">currentAction</span><span class="p">.</span><span class="n">destroy</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+            <span class="n">currentAction</span> <span class="p">=</span> <span class="n">patrolActionManager</span><span class="p">.</span><span class="n">getTarget</span> <span class="p">(</span><span class="n">actor</span><span class="p">,</span> <span class="n">gameObject</span><span class="p">,</span> <span class="n">animator</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">type</span> <span class="p">==</span> <span class="n">ActionType</span><span class="p">.</span><span class="n">DEAD</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">currentAction</span> <span class="p">=</span> <span class="n">patrolActionManager</span><span class="p">.</span><span class="n">Stop</span> <span class="p">(</span><span class="n">gameObject</span><span class="p">,</span> <span class="n">animator</span><span class="p">,</span> <span class="k">this</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// FirstController.cs</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">notified</span> <span class="p">(</span><span class="n">ActionType</span> <span class="n">type</span><span class="p">,</span> <span class="kt">int</span> <span class="n">position</span><span class="p">,</span> <span class="n">GameObject</span> <span class="n">actor</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">type</span> <span class="p">==</span> <span class="n">ActionType</span><span class="p">.</span><span class="n">ENTER</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">scoreRecorder</span><span class="p">.</span><span class="n">addScore</span> <span class="p">();</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">type</span> <span class="p">==</span> <span class="n">ActionType</span><span class="p">.</span><span class="n">DEAD</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">gameStatus</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+        <span class="n">factory</span><span class="p">.</span><span class="n">freeAllObj</span> <span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="c1">// ScoreRecorder</span>
+<span class="k">public</span> <span class="k">void</span> <span class="nf">notified</span> <span class="p">(</span><span class="n">ActionType</span> <span class="n">type</span><span class="p">,</span> <span class="kt">int</span> <span class="n">position</span><span class="p">,</span> <span class="n">GameObject</span> <span class="n">actor</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">type</span> <span class="p">==</span> <span class="n">ActionType</span><span class="p">.</span><span class="n">EXIT</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">addScore</span> <span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h3 id="scorerecorder">ScoreRecorder</h3>
+<p>这次的计分员无须再在FirstController中控制，其作为一个观察者可以监听得分事件，从而自己改变得分</p>
+<div class="codehilite"><pre><span></span><span class="k">public</span> <span class="k">class</span> <span class="nc">ScoreRecorder</span><span class="p">:</span> <span class="n">Observer</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="kt">int</span> <span class="n">score</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+    <span class="k">private</span> <span class="kt">int</span> <span class="n">status</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="c1">// 使进出配对，避免Reset时加多一分</span>
+    <span class="n">Text</span> <span class="n">gameInfo</span><span class="p">;</span>
+
+    <span class="k">private</span> <span class="k">static</span> <span class="n">ScoreRecorder</span> <span class="n">instance</span><span class="p">;</span>
+    <span class="k">public</span> <span class="k">static</span> <span class="n">ScoreRecorder</span> <span class="nf">getInstance</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">instance</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">instance</span> <span class="p">=</span> <span class="k">new</span> <span class="n">ScoreRecorder</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">instance</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">private</span> <span class="nf">ScoreRecorder</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">gameInfo</span> <span class="p">=</span> <span class="p">(</span><span class="n">GameObject</span><span class="p">.</span><span class="n">Instantiate</span> <span class="p">(</span><span class="n">Resources</span><span class="p">.</span><span class="n">Load</span> <span class="p">(</span><span class="s">&quot;Prefabs/ScoreInfo&quot;</span><span class="p">))</span> <span class="k">as</span> <span class="n">GameObject</span><span class="p">).</span><span class="n">transform</span><span class="p">.</span><span class="n">Find</span> <span class="p">(</span><span class="s">&quot;Text&quot;</span><span class="p">).</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Text</span><span class="p">&gt;</span> <span class="p">();</span>
+        <span class="n">gameInfo</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="s">&quot;&quot;</span> <span class="p">+</span> <span class="n">score</span><span class="p">;</span>
+        <span class="n">status</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+        <span class="n">Publisher</span> <span class="n">publish</span> <span class="p">=</span> <span class="n">Publisher</span><span class="p">.</span><span class="n">getInstance</span> <span class="p">();</span>
+        <span class="n">publish</span><span class="p">.</span><span class="k">add</span> <span class="p">(</span><span class="k">this</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">addScore</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">score</span> <span class="p">+=</span> <span class="m">1</span><span class="p">;</span>
+        <span class="n">gameInfo</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="s">&quot;&quot;</span> <span class="p">+</span> <span class="n">score</span><span class="p">;</span>
+    <span class="p">}</span>
+
+
+    <span class="k">public</span> <span class="kt">int</span> <span class="nf">getScore</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">score</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">reset</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">score</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+        <span class="n">status</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+        <span class="n">gameInfo</span><span class="p">.</span><span class="n">text</span> <span class="p">=</span> <span class="s">&quot;&quot;</span> <span class="p">+</span> <span class="n">score</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">notified</span> <span class="p">(</span><span class="n">ActionType</span> <span class="n">type</span><span class="p">,</span> <span class="kt">int</span> <span class="n">position</span><span class="p">,</span> <span class="n">GameObject</span> <span class="n">actor</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">type</span> <span class="p">==</span> <span class="n">ActionType</span><span class="p">.</span><span class="n">ENTER</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">status</span> <span class="p">=</span> <span class="m">1</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">type</span> <span class="p">==</span> <span class="n">ActionType</span><span class="p">.</span><span class="n">EXIT</span> <span class="p">&amp;&amp;</span> <span class="n">status</span> <span class="p">==</span> <span class="m">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">addScore</span> <span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>到这里，这周的作业就基本完成了</p>
+<h2 id="_8">总结</h2>
+<p>通过这次作业，我了解到了订阅者和发布者模式的使用，学会了利用订阅者和发布者模式对游戏的各个部分进行"解耦"。</p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../学习笔记9-射箭小游戏/" title="学习笔记9-射箭小游戏" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                学习笔记9-射箭小游戏
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 - 2019 Zhong Wenqian
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.8eb9be28.js"></script>
+      
+      <script>app.initialize({version:"0.17.3",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>
