@@ -1,0 +1,1145 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="A site for me to put posts.">
+      
+      
+        <link rel="canonical" href="https://zhongwq.github.io/unity3D-learning/学习笔记13-AR版的坦克对战/">
+      
+      
+        <meta name="author" content="Zhong Wenqian">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.3, mkdocs-material-2.7.0">
+    
+    
+      
+        <title>学习笔记13-AR版的坦克对战 - Zhongwq's Site</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.78aab2dc.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.6079476c.css">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <a href="#13-ar" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://zhongwq.github.io" title="Zhongwq's Site" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Zhongwq's Site
+              </span>
+              <span class="md-header-nav__topic">
+                学习笔记13-AR版的坦克对战
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </span>
+    Zhongwq's Site
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Unity3D-learning
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Unity3D-learning
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记1-GUI井字棋/" title="学习笔记1-GUI井字棋" class="md-nav__link">
+      学习笔记1-GUI井字棋
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记2-物体的空间与运动/" title="学习笔记2-物体的空间与运动" class="md-nav__link">
+      学习笔记2-物体的空间与运动
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记3-Priestss & Devils编程实践/" title="学习笔记3-Priestss & Devils编程实践" class="md-nav__link">
+      学习笔记3-Priestss & Devils编程实践
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记4-游戏对象与图形基础/" title="学习笔记4-游戏对象与图形基础" class="md-nav__link">
+      学习笔记4-游戏对象与图形基础
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记5-Priests & Devils动作分离版/" title="学习笔记5-Priests & Devils动作分离版" class="md-nav__link">
+      学习笔记5-Priests & Devils动作分离版
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记6-Hit UFO编程实践/" title="学习笔记6-Hit UFO编程实践" class="md-nav__link">
+      学习笔记6-Hit UFO编程实践
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记7-自定义Component(Editor)/" title="学习笔记7-自定义Component(Editor)" class="md-nav__link">
+      学习笔记7-自定义Component(Editor)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记8-adapter模式的打飞碟游戏/" title="学习笔记8-adapter模式的打飞碟游戏" class="md-nav__link">
+      学习笔记8-adapter模式的打飞碟游戏
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记9-射箭小游戏/" title="学习笔记9-射箭小游戏" class="md-nav__link">
+      学习笔记9-射箭小游戏
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记10-简单巡逻兵小游戏/" title="学习笔记10-简单巡逻兵小游戏" class="md-nav__link">
+      学习笔记10-简单巡逻兵小游戏
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记11-粒子光环制作/" title="学习笔记11-粒子光环制作" class="md-nav__link">
+      学习笔记11-粒子光环制作
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记12-可展开公告版/" title="学习笔记12-可展开公告版" class="md-nav__link">
+      学习笔记12-可展开公告版
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        学习笔记13-AR版的坦克对战
+      </label>
+    
+    <a href="./" title="学习笔记13-AR版的坦克对战" class="md-nav__link md-nav__link--active">
+      学习笔记13-AR版的坦克对战
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="作业素材" class="md-nav__link">
+    作业素材
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="实现效果" class="md-nav__link">
+    实现效果
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="实现过程" class="md-nav__link">
+    实现过程
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="环境配置" class="md-nav__link">
+    环境配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="摇杆制作" class="md-nav__link">
+    摇杆制作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="场景制作" class="md-nav__link">
+    场景制作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="代码完成" class="md-nav__link">
+    代码完成
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tank" title="Tank" class="md-nav__link">
+    Tank
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#player" title="Player" class="md-nav__link">
+    Player
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enemy" title="Enemy" class="md-nav__link">
+    Enemy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allfactory" title="AllFactory" class="md-nav__link">
+    AllFactory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firstscenecontroller" title="FirstSceneController" class="md-nav__link">
+    FirstSceneController
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="作业素材" class="md-nav__link">
+    作业素材
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="实现效果" class="md-nav__link">
+    实现效果
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="实现过程" class="md-nav__link">
+    实现过程
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="环境配置" class="md-nav__link">
+    环境配置
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="摇杆制作" class="md-nav__link">
+    摇杆制作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="场景制作" class="md-nav__link">
+    场景制作
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="代码完成" class="md-nav__link">
+    代码完成
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tank" title="Tank" class="md-nav__link">
+    Tank
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#player" title="Player" class="md-nav__link">
+    Player
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enemy" title="Enemy" class="md-nav__link">
+    Enemy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#allfactory" title="AllFactory" class="md-nav__link">
+    AllFactory
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#firstscenecontroller" title="FirstSceneController" class="md-nav__link">
+    FirstSceneController
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="13-ar">学习笔记13-AR版的坦克对战</h1>
+<h3 id="_1">作业素材</h3>
+<p>官方Tank Tutourial的素材</p>
+<h3 id="_2">实现效果</h3>
+<p>代码仓库</p>
+<p><a href="https://github.com/zhongwq/Unity3D-Learning/tree/master/Homework9">Github</a></p>
+<p>Gif</p>
+<p><img alt="SmartSelect_20180619-094928_Video Playe" src="../media/15293703937884/SmartSelect_20180619-094928_Video%20Player.gif" /></p>
+<p>演示视频</p>
+<p><a href="https://v.youku.com/v_show/id_XMzY3MzE5NjgwNA==.html?spm=a2h3j.8428770.3416059.1">Youku</a></p>
+<h3 id="_3">实现过程</h3>
+<h4 id="_4">环境配置</h4>
+<p>首先，我们导入Vuforia的包，根据课上学到的内容，配置好AR的环境其次因为电脑上的摄像头配合AR太不方便了，所以我打算配置好实验环境，部分时候使用手机来测试。
+打开File &gt; Build Settings，我们可以看到Unity可以编译出多平台下的游戏，这里我们需要使用的是ANDROID，点开，若没有安装，其会指导我们打开下载页面下载对应安装包，安装好后界面如下，到这里基本的环境
+<img alt="屏幕快照 2018-06-19 上午9.12.46" src="../media/15293703937884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-06-19%20%E4%B8%8A%E5%8D%889.12.46.png" /></p>
+<h4 id="_5">摇杆制作</h4>
+<p>手机上就不像我们的电脑可以使用键盘，如何进行交互就是值得思考的点，最终我打算使用较多手机游戏中使用的摇杆，首先创建一个UI &gt; Button，把里面的Text换成Image，我们通过编写关于拖动的脚本，根据Image的偏移量来计算移动，效果如下
+<img alt="屏幕快照 2018-06-19 上午9.19.44" src="../media/15293703937884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-06-19%20%E4%B8%8A%E5%8D%889.19.44.png" />
+<img alt="屏幕快照 2018-06-19 上午9.19.40" src="../media/15293703937884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-06-19%20%E4%B8%8A%E5%8D%889.19.40.png" /></p>
+<p>脚本呢也较为简单，主要使用到了OnDrag来完成</p>
+<div class="codehilite"><pre><span></span><span class="k">public</span> <span class="k">class</span> <span class="nc">MoveCtrl</span> <span class="p">:</span> <span class="n">MonoBehaviour</span><span class="p">,</span> <span class="n">IDragHandler</span><span class="p">,</span> <span class="n">IEndDragHandler</span> <span class="p">{</span>
+    <span class="c1">//图标移动最大半径  </span>
+    <span class="k">public</span> <span class="kt">float</span> <span class="n">maxRadius</span> <span class="p">=</span> <span class="m">200</span><span class="p">;</span>  
+    <span class="c1">//初始化背景图标位置  </span>
+    <span class="k">private</span> <span class="n">Vector2</span> <span class="n">moveBackPos</span><span class="p">;</span>  
+
+    <span class="k">private</span> <span class="kt">float</span> <span class="n">horizontal</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>  
+    <span class="k">private</span> <span class="kt">float</span> <span class="n">vertical</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>  
+
+    <span class="k">public</span> <span class="kt">float</span> <span class="n">Horizontal</span> <span class="p">{</span>  
+        <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="n">horizontal</span><span class="p">;</span> <span class="p">}</span>  
+    <span class="p">}</span>  
+
+    <span class="k">public</span> <span class="kt">float</span> <span class="n">Vertical</span> <span class="p">{</span>  
+        <span class="k">get</span> <span class="p">{</span> <span class="k">return</span> <span class="n">vertical</span><span class="p">;</span> <span class="p">}</span>  
+    <span class="p">}</span>  
+
+
+    <span class="c1">// Use this for initialization  </span>
+    <span class="k">void</span> <span class="nf">Start</span> <span class="p">()</span> <span class="p">{</span>  
+        <span class="c1">//初始化位置  </span>
+        <span class="n">moveBackPos</span> <span class="p">=</span> <span class="n">transform</span><span class="p">.</span><span class="n">parent</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">;</span>  
+    <span class="p">}</span>  
+
+    <span class="c1">// Update is called once per frame  </span>
+    <span class="k">void</span> <span class="nf">Update</span> <span class="p">()</span> <span class="p">{</span>  
+        <span class="n">horizontal</span> <span class="p">=</span> <span class="n">transform</span><span class="p">.</span><span class="n">localPosition</span><span class="p">.</span><span class="n">x</span><span class="p">;</span>  
+        <span class="n">vertical</span> <span class="p">=</span> <span class="n">transform</span><span class="p">.</span><span class="n">localPosition</span><span class="p">.</span><span class="n">y</span><span class="p">;</span>  
+    <span class="p">}</span>  
+
+    <span class="c1">/// &lt;summary&gt;  </span>
+    <span class="c1">/// 当鼠标开始拖拽时  </span>
+    <span class="c1">/// &lt;/summary&gt;  </span>
+    <span class="c1">/// &lt;param name=&quot;eventData&quot;&gt;&lt;/param&gt;  </span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">OnDrag</span><span class="p">(</span><span class="n">PointerEventData</span> <span class="n">eventData</span><span class="p">)</span> <span class="p">{</span>  
+        <span class="c1">//获取鼠标位置与初始位置之间的向量  </span>
+        <span class="n">Vector2</span> <span class="n">oppsitionVec</span> <span class="p">=</span> <span class="n">eventData</span><span class="p">.</span><span class="n">position</span> <span class="p">-</span> <span class="n">moveBackPos</span><span class="p">;</span>  
+        <span class="c1">//获取向量的长度  </span>
+        <span class="kt">float</span> <span class="n">distance</span> <span class="p">=</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">Magnitude</span><span class="p">(</span><span class="n">oppsitionVec</span><span class="p">);</span>  
+        <span class="c1">//最小值与最大值之间取半径  </span>
+        <span class="kt">float</span> <span class="n">radius</span> <span class="p">=</span> <span class="n">Mathf</span><span class="p">.</span><span class="n">Clamp</span><span class="p">(</span><span class="n">distance</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">maxRadius</span><span class="p">);</span>  
+        <span class="c1">//限制半径长度  </span>
+        <span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">moveBackPos</span> <span class="p">+</span> <span class="n">oppsitionVec</span><span class="p">.</span><span class="n">normalized</span> <span class="p">*</span> <span class="n">radius</span><span class="p">;</span>  
+    <span class="p">}</span>  
+
+    <span class="c1">/// &lt;summary&gt;  </span>
+    <span class="c1">/// 当鼠标停止拖拽时  </span>
+    <span class="c1">/// &lt;/summary&gt;  </span>
+    <span class="c1">/// &lt;param name=&quot;eventData&quot;&gt;&lt;/param&gt;  </span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">OnEndDrag</span><span class="p">(</span><span class="n">PointerEventData</span> <span class="n">eventData</span><span class="p">)</span> <span class="p">{</span>  
+        <span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">moveBackPos</span><span class="p">;</span>  
+        <span class="n">transform</span><span class="p">.</span><span class="n">localPosition</span> <span class="p">=</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">zero</span><span class="p">;</span>  
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>这样我们只需在场景控制器中的Update加上对应根据Vertical和Horizontal来移动的代码即可实现摇杆控制玩家。</p>
+<h4 id="_6">场景制作</h4>
+<p>我的游戏场景打算使用ImageTarget，当识别到相应图像，游戏场景就会显示。为了使用Nav Mesh, 先把Image Target的Mesh Filter的Mesh改成Plane。这样我们就可以使用Unity的导航与寻路了。
+<img alt="屏幕快照 2018-06-19 上午9.24.22" src="../media/15293703937884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-06-19%20%E4%B8%8A%E5%8D%889.24.22.png" />
+创建好游戏对象之后，我们把物体不能在上移动的对象在Navigation的Object中调成以下属性
+<img alt="屏幕快照 2018-06-19 上午9.26.24" src="../media/15293703937884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-06-19%20%E4%B8%8A%E5%8D%889.26.24.png" />
+Bake结果如下
+<img alt="屏幕快照 2018-06-19 上午9.27.52" src="../media/15293703937884/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-06-19%20%E4%B8%8A%E5%8D%889.27.52.png" /></p>
+<h4 id="_7">代码完成</h4>
+<p>到这里我们就可以开始写我们的代码了，这一次的作业我使用了导演及工厂模式，部分借鉴了<a href="http://www.chenxd59.cn/?p=213">师兄的优秀博客</a>,这里说说部分类的代码</p>
+<h5 id="tank">Tank</h5>
+<div class="codehilite"><pre><span></span><span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine.AI</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">Tank</span> <span class="p">:</span> <span class="n">MonoBehaviour</span> <span class="p">{</span>
+    <span class="k">private</span> <span class="kt">float</span> <span class="n">hp</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="kt">float</span> <span class="nf">getHp</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">hp</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">setHp</span><span class="p">(</span><span class="kt">float</span> <span class="n">hp</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">hp</span> <span class="p">=</span> <span class="n">hp</span><span class="p">;</span> 
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h5 id="player">Player</h5>
+<p>当生命值小于0时，GameOver,坦克爆炸</p>
+<div class="codehilite"><pre><span></span><span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine.AI</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">Player</span> <span class="p">:</span> <span class="n">Tank</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">SetActive</span> <span class="p">(</span><span class="k">true</span><span class="p">);</span>
+        <span class="n">setHp</span><span class="p">(</span><span class="m">300f</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">setHp</span><span class="p">(</span><span class="m">300f</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">void</span> <span class="nf">Update</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">getHp</span><span class="p">()</span> <span class="p">&lt;=</span> <span class="m">0</span> <span class="p">&amp;&amp;</span> <span class="n">gameObject</span><span class="p">.</span><span class="n">activeSelf</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+            <span class="n">ParticleSystem</span> <span class="n">explosion</span> <span class="p">=</span> <span class="n">Singleton</span><span class="p">&lt;</span><span class="n">AllFactory</span><span class="p">&gt;.</span><span class="n">Instance</span><span class="p">.</span><span class="n">getTankPs</span> <span class="p">();</span> <span class="c1">//获取爆炸的粒子系统</span>
+            <span class="n">explosion</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">;</span> <span class="c1">//设置粒子系统位置</span>
+            <span class="n">explosion</span><span class="p">.</span><span class="n">Play</span><span class="p">();</span>
+            <span class="p">((</span><span class="n">FirstSceneController</span><span class="p">)</span><span class="n">GameDirector</span><span class="p">.</span><span class="n">getInstance</span> <span class="p">().</span><span class="n">currentSceneController</span><span class="p">).</span><span class="n">gameOver</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h5 id="enemy">Enemy</h5>
+<div class="codehilite"><pre><span></span><span class="k">public</span> <span class="k">class</span> <span class="nc">Enemy</span> <span class="p">:</span> <span class="n">Tank</span> <span class="p">{</span>
+    <span class="k">private</span> <span class="n">Vector3</span> <span class="n">target</span><span class="p">;</span>
+
+    <span class="k">private</span> <span class="kt">bool</span> <span class="n">gameover</span><span class="p">;</span> <span class="c1">//根据FirstSceneController中的gameOver，判断游戏是否结束</span>
+    <span class="k">private</span> <span class="n">AllFactory</span> <span class="n">allFactory</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">setHp</span> <span class="p">(</span><span class="m">100f</span><span class="p">);</span><span class="c1">//设置初始生命值  </span>
+        <span class="n">StopAllCoroutines</span> <span class="p">();</span><span class="c1">//停止所有协程</span>
+        <span class="n">StartCoroutine</span><span class="p">(</span><span class="n">shoot</span><span class="p">());</span><span class="c1">//开始射击的协程</span>
+    <span class="p">}</span>
+
+    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">setHp</span><span class="p">(</span><span class="m">100f</span><span class="p">);</span><span class="c1">//设置初始生命值  </span>
+        <span class="n">allFactory</span> <span class="p">=</span> <span class="n">Singleton</span><span class="p">&lt;</span><span class="n">AllFactory</span><span class="p">&gt;.</span><span class="n">Instance</span><span class="p">;</span>
+        <span class="n">StartCoroutine</span><span class="p">(</span><span class="n">shoot</span><span class="p">());</span><span class="c1">//开始射击的协程</span>
+    <span class="p">}</span>
+
+    <span class="k">void</span> <span class="nf">Update</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="n">gameover</span> <span class="p">=</span> <span class="p">((</span><span class="n">FirstSceneController</span><span class="p">)</span><span class="n">GameDirector</span><span class="p">.</span><span class="n">getInstance</span> <span class="p">().</span><span class="n">currentSceneController</span><span class="p">).</span><span class="n">gameOver</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(!</span><span class="n">gameover</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">target</span> <span class="p">=</span> <span class="p">((</span><span class="n">FirstSceneController</span><span class="p">)</span><span class="n">GameDirector</span><span class="p">.</span><span class="n">getInstance</span><span class="p">().</span><span class="n">currentSceneController</span><span class="p">).</span><span class="n">getPlayerPos</span><span class="p">();</span>  <span class="c1">// 感知     </span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">getHp</span><span class="p">()</span> <span class="p">&lt;=</span> <span class="m">0</span> <span class="p">&amp;&amp;</span> <span class="n">gameObject</span><span class="p">.</span><span class="n">activeSelf</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//思考</span>
+                <span class="n">allFactory</span><span class="p">.</span><span class="n">recycleTank</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">gameObject</span><span class="p">);</span>
+                <span class="p">((</span><span class="n">FirstSceneController</span><span class="p">)</span><span class="n">GameDirector</span><span class="p">.</span><span class="n">getInstance</span> <span class="p">().</span><span class="n">currentSceneController</span><span class="p">).</span><span class="n">GetScore</span> <span class="p">();</span>
+                <span class="n">StopCoroutine</span><span class="p">(</span><span class="n">shoot</span><span class="p">());</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">NavMeshAgent</span> <span class="n">agent</span> <span class="p">=</span> <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">NavMeshAgent</span><span class="p">&gt;();</span>
+                <span class="n">agent</span><span class="p">.</span><span class="n">SetDestination</span><span class="p">(</span><span class="n">target</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="n">NavMeshAgent</span> <span class="n">agent</span> <span class="p">=</span> <span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">NavMeshAgent</span><span class="p">&gt;();</span>
+            <span class="n">agent</span><span class="p">.</span><span class="n">velocity</span> <span class="p">=</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">zero</span><span class="p">;</span>
+            <span class="n">agent</span><span class="p">.</span><span class="n">ResetPath</span><span class="p">();</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+
+    <span class="n">IEnumerator</span> <span class="nf">shoot</span><span class="p">()</span> <span class="p">{</span> <span class="c1">// 行为</span>
+        <span class="k">while</span><span class="p">(!</span><span class="n">gameover</span> <span class="p">&amp;&amp;</span> <span class="n">getHp</span><span class="p">()</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">for</span> <span class="p">(</span><span class="kt">float</span> <span class="n">i</span> <span class="p">=</span> <span class="m">2</span><span class="p">;</span> <span class="n">i</span> <span class="p">&gt;</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">-=</span> <span class="n">Time</span><span class="p">.</span><span class="n">deltaTime</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">yield</span> <span class="k">return</span> <span class="m">0</span><span class="p">;</span> 
+            <span class="p">}</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="n">Distance</span><span class="p">(</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span> <span class="p">&lt;</span> <span class="m">15</span><span class="p">)</span> <span class="p">{</span> <span class="c1">//距离判断是否攻击</span>
+                <span class="n">GameObject</span> <span class="n">bullet</span> <span class="p">=</span> <span class="n">allFactory</span><span class="p">.</span><span class="n">getBullet</span><span class="p">(</span><span class="n">tankType</span><span class="p">.</span><span class="n">Enemy</span><span class="p">);</span>
+                <span class="n">bullet</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span><span class="p">(</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="m">1.5f</span><span class="p">,</span> <span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">z</span><span class="p">)</span> <span class="p">+</span>
+                    <span class="n">transform</span><span class="p">.</span><span class="n">forward</span> <span class="p">*</span> <span class="m">1.5f</span><span class="p">;</span>
+                <span class="n">bullet</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">forward</span> <span class="p">=</span> <span class="n">transform</span><span class="p">.</span><span class="n">forward</span><span class="p">;</span>
+                <span class="n">Rigidbody</span> <span class="n">rb</span> <span class="p">=</span> <span class="n">bullet</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Rigidbody</span><span class="p">&gt;();</span>
+                <span class="n">rb</span><span class="p">.</span><span class="n">AddForce</span><span class="p">(</span><span class="n">bullet</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">forward</span> <span class="p">*</span> <span class="m">20</span><span class="p">,</span> <span class="n">ForceMode</span><span class="p">.</span><span class="n">Impulse</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h5 id="allfactory">AllFactory</h5>
+<p>AllFactory把所有坦克、子弹和两个爆炸集中到一起管理</p>
+<div class="codehilite"><pre><span></span><span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">enum</span> <span class="n">tankType</span><span class="p">:</span><span class="kt">int</span> <span class="p">{</span><span class="n">Player</span><span class="p">,</span> <span class="n">Enemy</span><span class="p">}</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">AllFactory</span> <span class="p">:</span> <span class="n">MonoBehaviour</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="n">GameObject</span> <span class="n">player</span><span class="p">;</span> <span class="c1">//玩家坦克</span>
+    <span class="k">public</span> <span class="n">GameObject</span> <span class="n">bullet</span><span class="p">;</span> <span class="c1">//子弹</span>
+    <span class="k">public</span> <span class="n">Transform</span> <span class="n">imageTarget</span><span class="p">;</span>
+
+    <span class="k">private</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">GameObject</span><span class="p">&gt;</span> <span class="n">usingTanks</span><span class="p">;</span>
+    <span class="k">private</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">GameObject</span><span class="p">&gt;</span> <span class="n">freeTanks</span><span class="p">;</span>
+    <span class="k">private</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">GameObject</span><span class="p">&gt;</span> <span class="n">usingBullets</span><span class="p">;</span>
+    <span class="k">private</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">GameObject</span><span class="p">&gt;</span> <span class="n">freeBullets</span><span class="p">;</span>
+
+    <span class="k">private</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">ParticleSystem</span><span class="p">&gt;</span> <span class="n">psContainer</span><span class="p">;</span>
+    <span class="k">private</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">ParticleSystem</span><span class="p">&gt;</span> <span class="n">tankPsContainer</span><span class="p">;</span>
+
+
+
+    <span class="k">void</span> <span class="nf">Awake</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">usingTanks</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">GameObject</span><span class="p">&gt;();</span>
+        <span class="n">freeTanks</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">GameObject</span><span class="p">&gt;();</span>
+        <span class="n">usingBullets</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">GameObject</span><span class="p">&gt;();</span>
+        <span class="n">freeBullets</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Dictionary</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">GameObject</span><span class="p">&gt;();</span>
+        <span class="n">psContainer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">ParticleSystem</span><span class="p">&gt;();</span>
+        <span class="n">tankPsContainer</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="n">ParticleSystem</span><span class="p">&gt;</span> <span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">void</span> <span class="nf">Start</span><span class="p">()</span> <span class="p">{</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="n">GameObject</span> <span class="nf">getPlayer</span><span class="p">()</span> <span class="p">{</span><span class="c1">//获取玩家坦克</span>
+        <span class="k">return</span> <span class="n">player</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="n">GameObject</span> <span class="nf">getTank</span><span class="p">()</span> <span class="p">{</span> 
+        <span class="k">if</span> <span class="p">(</span><span class="n">freeTanks</span><span class="p">.</span><span class="n">Count</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">GameObject</span> <span class="n">newTank</span> <span class="p">=</span> <span class="n">Instantiate</span> <span class="p">(</span><span class="n">Resources</span><span class="p">.</span><span class="n">Load</span> <span class="p">(</span><span class="s">&quot;Prefabs/Enemy&quot;</span><span class="p">))</span> <span class="k">as</span> <span class="n">GameObject</span><span class="p">;</span>
+            <span class="n">usingTanks</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">newTank</span><span class="p">.</span><span class="n">GetInstanceID</span><span class="p">(),</span> <span class="n">newTank</span><span class="p">);</span>
+            <span class="n">newTank</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">parent</span> <span class="p">=</span> <span class="n">imageTarget</span><span class="p">;</span>
+            <span class="n">newTank</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">localScale</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span> <span class="p">(</span><span class="m">0.02f</span><span class="p">,</span> <span class="m">0.02f</span><span class="p">,</span> <span class="m">0.02f</span><span class="p">);</span>
+            <span class="n">newTank</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">localPosition</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span><span class="p">(((</span><span class="kt">float</span><span class="p">)</span><span class="n">Random</span><span class="p">.</span><span class="n">Range</span><span class="p">(-</span><span class="m">4</span><span class="p">,</span> <span class="m">4</span><span class="p">))/</span><span class="m">10</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="p">((</span><span class="kt">float</span><span class="p">)</span><span class="n">Random</span><span class="p">.</span><span class="n">Range</span><span class="p">(-</span><span class="m">4</span><span class="p">,</span> <span class="m">4</span><span class="p">))/</span><span class="m">10</span><span class="p">);</span>
+            <span class="k">return</span> <span class="n">newTank</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">foreach</span> <span class="p">(</span><span class="n">KeyValuePair</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">GameObject</span><span class="p">&gt;</span> <span class="n">pair</span> <span class="k">in</span> <span class="n">freeTanks</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">pair</span><span class="p">.</span><span class="n">Value</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+            <span class="n">freeTanks</span><span class="p">.</span><span class="n">Remove</span><span class="p">(</span><span class="n">pair</span><span class="p">.</span><span class="n">Key</span><span class="p">);</span>
+            <span class="n">usingTanks</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">pair</span><span class="p">.</span><span class="n">Key</span><span class="p">,</span> <span class="n">pair</span><span class="p">.</span><span class="n">Value</span><span class="p">);</span>
+            <span class="n">pair</span><span class="p">.</span><span class="n">Value</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">parent</span> <span class="p">=</span> <span class="n">imageTarget</span><span class="p">;</span>
+            <span class="n">pair</span><span class="p">.</span><span class="n">Value</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">localPosition</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span><span class="p">(((</span><span class="kt">float</span><span class="p">)</span><span class="n">Random</span><span class="p">.</span><span class="n">Range</span><span class="p">(-</span><span class="m">4</span><span class="p">,</span> <span class="m">4</span><span class="p">))/</span><span class="m">10</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="p">((</span><span class="kt">float</span><span class="p">)</span><span class="n">Random</span><span class="p">.</span><span class="n">Range</span><span class="p">(-</span><span class="m">4</span><span class="p">,</span> <span class="m">4</span><span class="p">))/</span><span class="m">10</span><span class="p">);</span>
+            <span class="n">pair</span><span class="p">.</span><span class="n">Value</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Enemy</span><span class="p">&gt;</span> <span class="p">().</span><span class="n">init</span> <span class="p">();</span>
+            <span class="k">return</span> <span class="n">pair</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="k">null</span><span class="p">;</span>
+    <span class="p">}</span>   
+
+    <span class="k">public</span> <span class="n">GameObject</span> <span class="nf">getBullet</span><span class="p">(</span><span class="n">tankType</span> <span class="n">type</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">freeBullets</span><span class="p">.</span><span class="n">Count</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">GameObject</span> <span class="n">newBullet</span> <span class="p">=</span> <span class="n">Instantiate</span> <span class="p">(</span><span class="n">Resources</span><span class="p">.</span><span class="n">Load</span> <span class="p">(</span><span class="s">&quot;Prefabs/Bullet&quot;</span><span class="p">))</span> <span class="k">as</span> <span class="n">GameObject</span><span class="p">;</span>
+            <span class="n">newBullet</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Bullet</span><span class="p">&gt;().</span><span class="n">setTankType</span><span class="p">(</span><span class="n">type</span><span class="p">);</span>
+            <span class="n">usingBullets</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">newBullet</span><span class="p">.</span><span class="n">GetInstanceID</span><span class="p">(),</span> <span class="n">newBullet</span><span class="p">);</span>
+            <span class="n">newBullet</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">parent</span> <span class="p">=</span> <span class="n">imageTarget</span><span class="p">;</span>
+            <span class="k">return</span> <span class="n">newBullet</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">foreach</span> <span class="p">(</span><span class="n">KeyValuePair</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="n">GameObject</span><span class="p">&gt;</span> <span class="n">pair</span> <span class="k">in</span> <span class="n">freeBullets</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">pair</span><span class="p">.</span><span class="n">Value</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+            <span class="n">pair</span><span class="p">.</span><span class="n">Value</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Bullet</span><span class="p">&gt;().</span><span class="n">setTankType</span><span class="p">(</span><span class="n">type</span><span class="p">);</span>
+            <span class="n">freeBullets</span><span class="p">.</span><span class="n">Remove</span><span class="p">(</span><span class="n">pair</span><span class="p">.</span><span class="n">Key</span><span class="p">);</span>
+            <span class="n">usingBullets</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">pair</span><span class="p">.</span><span class="n">Key</span><span class="p">,</span> <span class="n">pair</span><span class="p">.</span><span class="n">Value</span><span class="p">);</span>
+            <span class="n">pair</span><span class="p">.</span><span class="n">Value</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Rigidbody</span><span class="p">&gt;</span> <span class="p">().</span><span class="n">velocity</span> <span class="p">=</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">zero</span><span class="p">;</span>
+            <span class="k">return</span> <span class="n">pair</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="k">null</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="n">ParticleSystem</span> <span class="nf">getPs</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">psContainer</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(!</span><span class="n">psContainer</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">isPlaying</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="n">psContainer</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">GameObject</span> <span class="n">explore</span> <span class="p">=</span> <span class="n">Instantiate</span> <span class="p">(</span><span class="n">Resources</span><span class="p">.</span><span class="n">Load</span> <span class="p">(</span><span class="s">&quot;Prefabs/ShellExplosion&quot;</span><span class="p">))</span> <span class="k">as</span> <span class="n">GameObject</span><span class="p">;</span>
+        <span class="n">explore</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">parent</span> <span class="p">=</span> <span class="n">imageTarget</span><span class="p">;</span>
+        <span class="n">ParticleSystem</span> <span class="n">newPs</span> <span class="p">=</span> <span class="n">explore</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">ParticleSystem</span><span class="p">&gt;</span> <span class="p">();</span>
+        <span class="n">psContainer</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">newPs</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">newPs</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="n">ParticleSystem</span> <span class="nf">getTankPs</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span> <span class="n">i</span> <span class="p">&lt;</span> <span class="n">tankPsContainer</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span> <span class="n">i</span><span class="p">++)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(!</span><span class="n">tankPsContainer</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">isPlaying</span><span class="p">)</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="n">tankPsContainer</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">GameObject</span> <span class="n">explore</span> <span class="p">=</span> <span class="n">Instantiate</span> <span class="p">(</span><span class="n">Resources</span><span class="p">.</span><span class="n">Load</span> <span class="p">(</span><span class="s">&quot;Prefabs/TankExplosion&quot;</span><span class="p">))</span> <span class="k">as</span> <span class="n">GameObject</span><span class="p">;</span>
+        <span class="n">explore</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">parent</span> <span class="p">=</span> <span class="n">imageTarget</span><span class="p">;</span>
+        <span class="n">ParticleSystem</span> <span class="n">newPs</span> <span class="p">=</span> <span class="n">explore</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">ParticleSystem</span><span class="p">&gt;</span> <span class="p">();</span>
+        <span class="n">tankPsContainer</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">newPs</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">newPs</span><span class="p">;</span>
+    <span class="p">}</span>
+
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">recycleTank</span><span class="p">(</span><span class="n">GameObject</span> <span class="n">tank</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">tank</span><span class="p">.</span><span class="n">SetActive</span> <span class="p">(</span><span class="k">false</span><span class="p">);</span>
+        <span class="n">usingTanks</span><span class="p">.</span><span class="n">Remove</span><span class="p">(</span><span class="n">tank</span><span class="p">.</span><span class="n">GetInstanceID</span><span class="p">());</span>
+        <span class="n">freeTanks</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">tank</span><span class="p">.</span><span class="n">GetInstanceID</span><span class="p">(),</span> <span class="n">tank</span><span class="p">);</span>
+        <span class="n">ParticleSystem</span> <span class="n">explosion</span> <span class="p">=</span> <span class="n">getTankPs</span> <span class="p">();</span> <span class="c1">//获取爆炸的粒子系统</span>
+        <span class="n">explosion</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">tank</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">;</span> <span class="c1">//设置粒子系统位置</span>
+        <span class="n">explosion</span><span class="p">.</span><span class="n">Play</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">recycleBullet</span><span class="p">(</span><span class="n">GameObject</span> <span class="n">bullet</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">usingBullets</span><span class="p">.</span><span class="n">Remove</span><span class="p">(</span><span class="n">bullet</span><span class="p">.</span><span class="n">GetInstanceID</span><span class="p">());</span>
+        <span class="n">freeBullets</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">bullet</span><span class="p">.</span><span class="n">GetInstanceID</span><span class="p">(),</span> <span class="n">bullet</span><span class="p">);</span>
+        <span class="n">bullet</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Rigidbody</span><span class="p">&gt;().</span><span class="n">velocity</span> <span class="p">=</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">zero</span><span class="p">;</span>
+        <span class="n">bullet</span><span class="p">.</span><span class="n">SetActive</span><span class="p">(</span><span class="k">false</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">recycleAllTanks</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">keyList</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;(</span><span class="n">usingTanks</span><span class="p">.</span><span class="n">Keys</span><span class="p">);</span>
+        <span class="k">foreach</span> <span class="p">(</span><span class="kt">int</span> <span class="n">key</span> <span class="k">in</span> <span class="n">keyList</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">usingTanks</span><span class="p">.</span><span class="n">ContainsKey</span> <span class="p">(</span><span class="n">key</span><span class="p">))</span> <span class="p">{</span>
+                <span class="n">usingTanks</span> <span class="p">[</span><span class="n">key</span><span class="p">].</span><span class="n">SetActive</span> <span class="p">(</span><span class="k">false</span><span class="p">);</span>
+                <span class="n">freeTanks</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">usingTanks</span> <span class="p">[</span><span class="n">key</span><span class="p">]);</span>
+                <span class="n">usingTanks</span><span class="p">.</span><span class="n">Remove</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">recycleAllBullets</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;</span> <span class="n">keyList</span> <span class="p">=</span> <span class="k">new</span> <span class="n">List</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;(</span><span class="n">usingBullets</span><span class="p">.</span><span class="n">Keys</span><span class="p">);</span>
+        <span class="k">foreach</span> <span class="p">(</span><span class="kt">int</span> <span class="n">key</span> <span class="k">in</span> <span class="n">keyList</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">usingBullets</span><span class="p">.</span><span class="n">ContainsKey</span> <span class="p">(</span><span class="n">key</span><span class="p">))</span> <span class="p">{</span>
+                <span class="n">usingBullets</span> <span class="p">[</span><span class="n">key</span><span class="p">].</span><span class="n">SetActive</span> <span class="p">(</span><span class="k">false</span><span class="p">);</span>
+                <span class="n">freeBullets</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">usingBullets</span> <span class="p">[</span><span class="n">key</span><span class="p">]);</span>
+                <span class="n">usingBullets</span><span class="p">.</span><span class="n">Remove</span><span class="p">(</span><span class="n">key</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">reset</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">recycleAllTanks</span> <span class="p">();</span>
+        <span class="n">recycleAllBullets</span> <span class="p">();</span>
+        <span class="n">player</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Player</span><span class="p">&gt;</span> <span class="p">().</span><span class="n">init</span> <span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h5 id="firstscenecontroller">FirstSceneController</h5>
+<div class="codehilite"><pre><span></span><span class="k">using</span> <span class="nn">System.Collections</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">System.Collections.Generic</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine</span><span class="p">;</span>
+<span class="k">using</span> <span class="nn">UnityEngine.UI</span><span class="p">;</span>
+
+<span class="k">public</span> <span class="k">class</span> <span class="nc">FirstSceneController</span> <span class="p">:</span> <span class="n">MonoBehaviour</span><span class="p">,</span> <span class="n">ISceneController</span> <span class="p">{</span>
+    <span class="k">public</span> <span class="n">MoveCtrl</span> <span class="n">move</span><span class="p">;</span>
+    <span class="k">public</span> <span class="n">GameObject</span> <span class="n">tank</span><span class="p">;</span>
+    <span class="k">public</span> <span class="n">Button</span> <span class="n">btn</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="kt">bool</span> <span class="n">gameOver</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+    <span class="k">private</span> <span class="n">AllFactory</span> <span class="n">allFactory</span><span class="p">;</span>
+    <span class="n">GUIStyle</span> <span class="n">headerStyle</span><span class="p">;</span>
+
+    <span class="k">private</span> <span class="kt">int</span> <span class="n">Count</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+    <span class="k">private</span> <span class="kt">int</span> <span class="n">Score</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+
+    <span class="c1">// Use this for initialization</span>
+    <span class="k">void</span> <span class="nf">Awake</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="n">GameDirector</span> <span class="n">director</span> <span class="p">=</span> <span class="n">GameDirector</span><span class="p">.</span><span class="n">getInstance</span> <span class="p">();</span>
+        <span class="n">director</span><span class="p">.</span><span class="n">currentSceneController</span> <span class="p">=</span> <span class="k">this</span><span class="p">;</span>
+        <span class="n">allFactory</span> <span class="p">=</span> <span class="n">Singleton</span><span class="p">&lt;</span><span class="n">AllFactory</span><span class="p">&gt;.</span><span class="n">Instance</span><span class="p">;</span>
+        <span class="n">tank</span> <span class="p">=</span> <span class="n">allFactory</span><span class="p">.</span><span class="n">getPlayer</span> <span class="p">();</span>
+        <span class="n">btn</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Button</span><span class="p">&gt;().</span><span class="n">onClick</span><span class="p">.</span><span class="n">AddListener</span> <span class="p">(</span><span class="k">delegate</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="n">attackHandler</span><span class="p">();</span>
+        <span class="p">});</span>
+    <span class="p">}</span>
+
+    <span class="k">void</span> <span class="nf">Start</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="n">Count</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+        <span class="n">headerStyle</span> <span class="p">=</span> <span class="k">new</span> <span class="n">GUIStyle</span><span class="p">();</span>
+        <span class="n">headerStyle</span><span class="p">.</span><span class="n">fontSize</span> <span class="p">=</span> <span class="m">100</span><span class="p">;</span>
+        <span class="n">headerStyle</span><span class="p">.</span><span class="n">alignment</span> <span class="p">=</span> <span class="n">TextAnchor</span><span class="p">.</span><span class="n">MiddleCenter</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">loadResources</span><span class="p">()</span> <span class="p">{</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">GetScore</span><span class="p">()</span> <span class="p">{</span>
+        <span class="p">++</span><span class="n">Score</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">void</span> <span class="nf">GameOver</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">this</span><span class="p">.</span><span class="n">gameOver</span> <span class="p">=</span> <span class="k">true</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="n">Vector3</span> <span class="nf">getPlayerPos</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">tank</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Update is called once per frame</span>
+    <span class="k">void</span> <span class="nf">Update</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">gameOver</span><span class="p">)</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">Count</span><span class="p">++</span> <span class="p">%</span> <span class="m">120</span> <span class="p">==</span> <span class="m">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">allFactory</span><span class="p">.</span><span class="n">getTank</span> <span class="p">();</span>
+        <span class="p">}</span>
+        <span class="kt">float</span> <span class="n">ver</span> <span class="p">=</span> <span class="p">-</span><span class="n">move</span><span class="p">.</span><span class="n">Horizontal</span><span class="p">;</span>  
+        <span class="kt">float</span> <span class="n">hor</span> <span class="p">=</span> <span class="n">move</span><span class="p">.</span><span class="n">Vertical</span><span class="p">;</span>
+
+        <span class="n">Vector3</span> <span class="n">direction</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span> <span class="p">(</span><span class="n">hor</span><span class="p">,</span> <span class="m">0</span><span class="p">,</span> <span class="n">ver</span><span class="p">);</span>  
+
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">direction</span> <span class="p">!=</span> <span class="n">Vector3</span><span class="p">.</span><span class="n">zero</span><span class="p">)</span> <span class="p">{</span>  
+            <span class="c1">//控制转向  </span>
+            <span class="n">tank</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">rotation</span> <span class="p">=</span> <span class="n">Quaternion</span><span class="p">.</span><span class="n">Lerp</span> <span class="p">(</span><span class="n">tank</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">rotation</span><span class="p">,</span> <span class="n">Quaternion</span><span class="p">.</span><span class="n">LookRotation</span> <span class="p">(</span><span class="n">direction</span><span class="p">),</span> <span class="n">Time</span><span class="p">.</span><span class="n">deltaTime</span> <span class="p">*</span> <span class="m">20</span><span class="p">);</span>  
+            <span class="c1">//向前移动  </span>
+            <span class="n">tank</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">Translate</span> <span class="p">(</span><span class="n">Vector3</span><span class="p">.</span><span class="n">forward</span> <span class="p">*</span> <span class="n">Time</span><span class="p">.</span><span class="n">deltaTime</span> <span class="p">*</span> <span class="m">5</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">void</span> <span class="nf">OnGUI</span><span class="p">()</span> <span class="p">{</span>
+        <span class="n">GUI</span><span class="p">.</span><span class="n">Label</span><span class="p">(</span><span class="k">new</span> <span class="n">Rect</span><span class="p">(</span><span class="n">Screen</span><span class="p">.</span><span class="n">width</span> <span class="p">-</span> <span class="m">500</span><span class="p">,</span> <span class="m">80</span><span class="p">,</span> <span class="m">400</span><span class="p">,</span> <span class="m">110</span><span class="p">),</span> <span class="s">&quot;Score: &quot;</span> <span class="p">+</span> <span class="n">Score</span><span class="p">,</span> <span class="n">headerStyle</span><span class="p">);</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">gameOver</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">GUI</span><span class="p">.</span><span class="n">Label</span> <span class="p">(</span><span class="k">new</span> <span class="n">Rect</span> <span class="p">(</span><span class="n">Screen</span><span class="p">.</span><span class="n">width</span> <span class="p">/</span> <span class="m">2</span> <span class="p">-</span> <span class="m">200</span><span class="p">,</span> <span class="n">Screen</span><span class="p">.</span><span class="n">height</span> <span class="p">/</span> <span class="m">2</span> <span class="p">-</span> <span class="m">100</span><span class="p">,</span> <span class="m">400</span><span class="p">,</span> <span class="m">110</span><span class="p">),</span> <span class="s">&quot;Game Over!&quot;</span><span class="p">,</span> <span class="n">headerStyle</span><span class="p">);</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">GUI</span><span class="p">.</span><span class="n">Button</span> <span class="p">(</span><span class="k">new</span> <span class="n">Rect</span> <span class="p">(</span><span class="n">Screen</span><span class="p">.</span><span class="n">width</span> <span class="p">/</span> <span class="m">2</span> <span class="p">-</span> <span class="m">150</span><span class="p">,</span> <span class="n">Screen</span><span class="p">.</span><span class="n">height</span> <span class="p">/</span> <span class="m">2</span> <span class="p">+</span> <span class="m">30</span><span class="p">,</span> <span class="m">300</span><span class="p">,</span> <span class="m">120</span><span class="p">),</span> <span class="s">&quot;Replay&quot;</span><span class="p">))</span> <span class="p">{</span>
+                <span class="n">allFactory</span><span class="p">.</span><span class="n">reset</span> <span class="p">();</span>
+                <span class="n">Score</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+                <span class="n">Count</span> <span class="p">=</span> <span class="m">0</span><span class="p">;</span>
+                <span class="n">gameOver</span> <span class="p">=</span> <span class="k">false</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">void</span> <span class="nf">attackHandler</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">gameOver</span><span class="p">)</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="n">GameObject</span> <span class="n">bullet</span> <span class="p">=</span> <span class="n">allFactory</span><span class="p">.</span><span class="n">getBullet</span><span class="p">(</span><span class="n">tankType</span><span class="p">.</span><span class="n">Player</span><span class="p">);</span><span class="c1">//获取子弹，设置其发出坦克的类型</span>
+        <span class="n">bullet</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="k">new</span> <span class="n">Vector3</span><span class="p">(</span><span class="n">tank</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="m">1.5f</span><span class="p">,</span> <span class="n">tank</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">.</span><span class="n">z</span><span class="p">)</span> <span class="p">+</span>
+        <span class="n">tank</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">forward</span> <span class="p">*</span> <span class="m">1.5f</span><span class="p">;</span>
+        <span class="n">bullet</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">forward</span> <span class="p">=</span> <span class="n">tank</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">forward</span><span class="p">;</span>
+        <span class="n">Rigidbody</span> <span class="n">rb</span> <span class="p">=</span> <span class="n">bullet</span><span class="p">.</span><span class="n">GetComponent</span><span class="p">&lt;</span><span class="n">Rigidbody</span><span class="p">&gt;();</span>
+        <span class="n">rb</span><span class="p">.</span><span class="n">AddForce</span><span class="p">(</span><span class="n">bullet</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">forward</span> <span class="p">*</span> <span class="m">20</span><span class="p">,</span> <span class="n">ForceMode</span><span class="p">.</span><span class="n">Impulse</span><span class="p">);</span><span class="c1">//给子弹一个向前的力，实现子弹向前移动</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>到这里，这周的作业就基本完成了，游戏的场景图像如下有兴趣的可以从<a href="https://github.com/zhongwq/Unity3D-Learning/tree/master/Homework9">我的Github</a>下载玩一下
+<img alt="20180616_145805" src="../media/15293703937884/20180616_145805.jpg" /></p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../学习笔记12-可展开公告版/" title="学习笔记12-可展开公告版" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                学习笔记12-可展开公告版
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 - 2019 Zhong Wenqian
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.8eb9be28.js"></script>
+      
+      <script>app.initialize({version:"0.17.3",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>
