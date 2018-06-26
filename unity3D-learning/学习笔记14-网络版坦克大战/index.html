@@ -1,0 +1,622 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="A site for me to put posts.">
+      
+      
+        <link rel="canonical" href="https://zhongwq.github.io/unity3D-learning/学习笔记14-网络版坦克大战/">
+      
+      
+        <meta name="author" content="Zhong Wenqian">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.3, mkdocs-material-2.7.0">
+    
+    
+      
+        <title>学习笔记14-网络版坦克大战 - Zhongwq's Site</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.78aab2dc.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.6079476c.css">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <a href="#14-" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://zhongwq.github.io" title="Zhongwq's Site" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Zhongwq's Site
+              </span>
+              <span class="md-header-nav__topic">
+                学习笔记14-网络版坦克大战
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </span>
+    Zhongwq's Site
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Unity3D-learning
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Unity3D-learning
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记1-GUI井字棋/" title="学习笔记1-GUI井字棋" class="md-nav__link">
+      学习笔记1-GUI井字棋
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记2-物体的空间与运动/" title="学习笔记2-物体的空间与运动" class="md-nav__link">
+      学习笔记2-物体的空间与运动
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记3-Priestss & Devils编程实践/" title="学习笔记3-Priestss & Devils编程实践" class="md-nav__link">
+      学习笔记3-Priestss & Devils编程实践
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记4-游戏对象与图形基础/" title="学习笔记4-游戏对象与图形基础" class="md-nav__link">
+      学习笔记4-游戏对象与图形基础
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记5-Priests & Devils动作分离版/" title="学习笔记5-Priests & Devils动作分离版" class="md-nav__link">
+      学习笔记5-Priests & Devils动作分离版
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记6-Hit UFO编程实践/" title="学习笔记6-Hit UFO编程实践" class="md-nav__link">
+      学习笔记6-Hit UFO编程实践
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记7-自定义Component(Editor)/" title="学习笔记7-自定义Component(Editor)" class="md-nav__link">
+      学习笔记7-自定义Component(Editor)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记8-adapter模式的打飞碟游戏/" title="学习笔记8-adapter模式的打飞碟游戏" class="md-nav__link">
+      学习笔记8-adapter模式的打飞碟游戏
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记9-射箭小游戏/" title="学习笔记9-射箭小游戏" class="md-nav__link">
+      学习笔记9-射箭小游戏
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记10-简单巡逻兵小游戏/" title="学习笔记10-简单巡逻兵小游戏" class="md-nav__link">
+      学习笔记10-简单巡逻兵小游戏
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记11-粒子光环制作/" title="学习笔记11-粒子光环制作" class="md-nav__link">
+      学习笔记11-粒子光环制作
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记12-可展开公告版/" title="学习笔记12-可展开公告版" class="md-nav__link">
+      学习笔记12-可展开公告版
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../学习笔记13-AR版的坦克对战/" title="学习笔记13-AR版的坦克对战" class="md-nav__link">
+      学习笔记13-AR版的坦克对战
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        学习笔记14-网络版坦克大战
+      </label>
+    
+    <a href="./" title="学习笔记14-网络版坦克大战" class="md-nav__link md-nav__link--active">
+      学习笔记14-网络版坦克大战
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="作业素材" class="md-nav__link">
+    作业素材
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="实现效果" class="md-nav__link">
+    实现效果
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="实现中遇到的问题" class="md-nav__link">
+    实现中遇到的问题
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="作业素材" class="md-nav__link">
+    作业素材
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="实现效果" class="md-nav__link">
+    实现效果
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="实现中遇到的问题" class="md-nav__link">
+    实现中遇到的问题
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="14-">学习笔记14-网络版坦克大战</h1>
+<h3 id="_1">作业素材</h3>
+<p>官方Tank Tutourial的素材</p>
+<h3 id="_2">实现效果</h3>
+<p>代码仓库</p>
+<p><a href="https://github.com/zhongwq/Unity3D-Learning/tree/master/Homework10">Github</a></p>
+<p>Gif</p>
+<p><img alt="yanshi" src="../media/15299015491867/yanshi.gif" /></p>
+<p>演示视频</p>
+<p><a href="https://v.youku.com/v_show/id_XMzY4ODA5MTA5Mg==.html?spm=a2h3j.8428770.3416059.1">演示视频</a></p>
+<h3 id="_3">实现中遇到的问题</h3>
+<p>本周我的项目中有较多对上一次作业成果的复用，而且坦克大战本质上我们课上的打子弹的Demo的代码逻辑其实也十分相像，都是含有玩家状态同步、联网的子弹发射的内容，所以我这次作业的分享不打算怎么去讲述我的代码,完整的项目也可以在<a href="https://github.com/zhongwq/Unity3D-Learning/tree/master/Homework10">我的Github仓库</a>看到。从分享的角度来说，个人感觉把我开发时遇到的一些问题以及我自己得到我对于其解决方案的过程分享出来更加具有意义。</p>
+<ol>
+<li>
+<p><strong>在根据课程网站上的UNet使用的相关知识，给我的坦克大战加上网络对战的功能后，首先我想到要解决的就是在课堂实现中就发现的一个子弹会打到自己的问题</strong></p>
+<p>首先，我想到了以下几种解决的方法</p>
+<ol>
+<li>增加子弹发出时距离玩家的距离，然后减少子弹判断的范围，使得玩家碰不到自己的子弹</li>
+<li>使用Tag来判断？</li>
+<li>给子弹增添一个发出者的变量用于判断碰撞。</li>
+</ol>
+<p>下面我们分别说说以上的解决办法:</p>
+<ul>
+<li>
+<p>增加子弹发出时距离玩家的距离，使得玩家碰不到自己的子弹</p>
+<p>这个解决方法是有效果的，但是在网络状况不好时，Client端经常还是会出现自己与子弹碰撞的情况，所以，总的来说，这种方法治标不治本，不是一种好的方法。</p>
+</li>
+<li>
+<p>使用Tag来判断？</p>
+<p>一开始傻傻的想着能不能通过OnStartLocalPlayer修改自己的Tag然后在判断时判断tag呢。但是后来一想OnStartLocalPlayer只在本地起作用啊，这样肯定不对的。。而且想了一想觉得使用tag不太现实，所以这方法就被我否决了。</p>
+</li>
+<li>
+<p>给子弹增添一个发出者的变量用于判断碰撞。</p>
+<p>这种方法是几种方法里面最现实的，肯定可以实现，而且是一种治本的方法，所以在上面几种方法中，我使用的是第三种方法。
+首先，我给子弹加了一个fromID用于记录把它射出的Player的instanceID，在创建子弹时给子弹的Bullet Component附上对应的值，但是后面发现没有达到期望的效果，结果发现，客户端的子弹的fromID并没有改变，其需要变成SyncVar才会在客户端同步，运行，发现结果OK，子弹不会被自己碰到而爆炸，嗯，很好。这样就完成了子弹会打到自己的问题的消除了，这是我对这个问题解决方案的思考，不过感觉这样写还是有点不优雅，不知道有没有更加优雅、更好的解决方案，有的话可以通过github仓库的ISSUE我们探讨一下🙃。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>爆炸只产生在Server</strong></p>
+<p>解决了上面子弹的问题后，美滋滋。。！！！🌚怎么客户端的爆炸没了。。Debug了一下发现子弹在服务端先碰撞先Destroy，所以客户端的子弹被Destroy，无碰撞产生，经过思考我把爆炸效果以及子弹Destroy弄成了一个ClientRpc函数，恰好这样也可以与本地的粒子工厂结合在一起，测试发现效果和预期相符。</p>
+<blockquote>
+<p>ClientRpc的作用恰巧与Command相反，其是服务器执行的代码，调用所有客户端执行函数，而Command则是本地玩家对象执行的代码，调用服务器执行的函数</p>
+</blockquote>
+</li>
+</ol>
+<div class="codehilite"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">flag</span> <span class="p">==</span> <span class="k">true</span> <span class="p">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="n">gameObject</span><span class="p">.</span><span class="n">activeSelf</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">isServer</span><span class="p">)</span>
+        <span class="n">RpcBulletExplosion</span> <span class="p">();</span>
+<span class="p">}</span>
+<span class="p">...</span>
+<span class="na">[ClientRpc]</span>
+<span class="k">void</span> <span class="nf">RpcBulletExplosion</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">ParticleSystem</span> <span class="n">explosion</span> <span class="p">=</span> <span class="n">Singleton</span><span class="p">&lt;</span><span class="n">PSFactory</span><span class="p">&gt;.</span><span class="n">Instance</span><span class="p">.</span><span class="n">getPs</span> <span class="p">();</span>
+    <span class="n">explosion</span><span class="p">.</span><span class="n">transform</span><span class="p">.</span><span class="n">position</span> <span class="p">=</span> <span class="n">transform</span><span class="p">.</span><span class="n">position</span><span class="p">;</span> <span class="c1">//设置粒子系统位置</span>
+    <span class="n">explosion</span><span class="p">.</span><span class="n">Play</span><span class="p">();</span>
+    <span class="n">Destroy</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="n">gameObject</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>3.<strong>子弹移动相关</strong></p>
+<p>因为在上一个版本中，我的子弹移动是通过施加一个向前的力来实现的，但是这样就会造成在发出后还会持续改变物体的速度，不利于我们联网射击，因为这里涉及到一个发送速率Network Send Rate的问题，如果我们在子弹发出后不去改变其方向或速度，我们的发送速率可以设置为0，不需要发送移动更新，这是比较合理的，我们应该以附加速度的方式去使子弹完成移动，这样就可以把发送速率设置为0。如果使用我们一开始的附加力的方式的话，我们就要把该速率调高，增加了无必要的网络负载。</p>
+<p>以上就是我这次实验碰到的比较关键的问题以及思考，因为对于UNet的了解不是很深入，而且临近期末，时间不太充裕无法深入去了解，感觉有的地方还是做的不是很到位，游戏的功能也不是太多，等到考完试了有时间的话会更深入了解一下，增加一些功能。完整的代码在最上面已经给出，有兴趣的可以看下。</p>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../学习笔记13-AR版的坦克对战/" title="学习笔记13-AR版的坦克对战" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                学习笔记13-AR版的坦克对战
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 - 2019 Zhong Wenqian
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.8eb9be28.js"></script>
+      
+      <script>app.initialize({version:"0.17.3",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>
