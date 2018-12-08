@@ -616,6 +616,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Leetcode 44. Wildcard Matching 题解/" title="Leetcode 44. Wildcard Matching 题解-Week14" class="md-nav__link">
+      Leetcode 44. Wildcard Matching 题解-Week14
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -779,14 +791,14 @@
 <p>Note:
 You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).</p>
 <blockquote>
-<p><strong>Example1:</strong>
-<strong>Input:</strong> [2,4,1], k = 2
-<strong>Output:</strong> 2
+<p><strong>Example1:</strong></p>
+<p><strong>Input:</strong> [2,4,1], k = 2</p>
+<p><strong>Output:</strong> 2
 Explanation: Buy on day 1 (price = 2) and sell on day 2 (price = 4), profit = 4-2 = 2.</p>
-<p><strong>Example2:</strong>
-<strong>Input</strong>: [3,2,6,5,0,3], k = 2
-<strong>Output</strong>: 7
-<strong>Explanation</strong>: Buy on day 2 (price = 2) and sell on day 3 (price = 6), profit = 6-2 = 4.
+<p><strong>Example2:</strong></p>
+<p><strong>Input</strong>: [3,2,6,5,0,3], k = 2</p>
+<p><strong>Output</strong>: 7</p>
+<p><strong>Explanation</strong>: Buy on day 2 (price = 2) and sell on day 3 (price = 6), profit = 6-2 = 4.
              Then buy on day 5 (price = 0) and sell on day 6 (price = 3), profit = 3-0 = 3.</p>
 </blockquote>
 <h3 id="_3">解题思路</h3>
@@ -796,6 +808,8 @@ for each p
 buys[j] = max(buys[j], sells[j-1] - p) (1&lt;=j&lt;=k)
 sells[j] = max(sells[j], buys[j] + prices[i]);</p>
 <p>最终结果即为我们的sells[k]。</p>
+<p>提交detail为</p>
+<p><img alt="detailUP" src="../media/15382066918077/detailUP.png" /></p>
 <h3 id="_4">题目代码</h3>
 <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
@@ -853,13 +867,13 @@ sells[j] = max(sells[j], buys[j] + prices[i]);</p>
           </a>
         
         
-          <a href="../../ServiceComputingOnCloud/MacOS VirtualBox 配置Ubuntu基本环境/" title="MacOS VirtualBox 配置Ubuntu基本环境" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../Leetcode 44. Wildcard Matching 题解/" title="Leetcode 44. Wildcard Matching 题解-Week14" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                MacOS VirtualBox 配置Ubuntu基本环境
+                Leetcode 44. Wildcard Matching 题解-Week14
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
