@@ -1,0 +1,1169 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="A site for me to put posts.">
+      
+      
+        <link rel="canonical" href="https://zhongwq.github.io/Leetcode Note/Capacitated Facility Location Problem/">
+      
+      
+        <meta name="author" content="Zhong Wenqian">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.3, mkdocs-material-3.0.4">
+    
+    
+      
+        <title>CFLP_Problem报告 - Zhongwq's Site</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.451f80e5.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="../../#capacitated-facility-location-problem" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://zhongwq.github.io" title="Zhongwq's Site" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Zhongwq's Site
+              </span>
+              <span class="md-header-nav__topic">
+                CFLP_Problem报告
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://zhongwq.github.io" title="Zhongwq's Site" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Zhongwq's Site
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Unity3D-learning
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Unity3D-learning
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../unity3D-learning/学习笔记1-GUI井字棋/" title="学习笔记1-GUI井字棋" class="md-nav__link">
+      学习笔记1-GUI井字棋
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../unity3D-learning/学习笔记2-物体的空间与运动/" title="学习笔记2-物体的空间与运动" class="md-nav__link">
+      学习笔记2-物体的空间与运动
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../unity3D-learning/学习笔记3-Priestss & Devils编程实践/" title="学习笔记3-Priestss & Devils编程实践" class="md-nav__link">
+      学习笔记3-Priestss & Devils编程实践
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../unity3D-learning/学习笔记4-游戏对象与图形基础/" title="学习笔记4-游戏对象与图形基础" class="md-nav__link">
+      学习笔记4-游戏对象与图形基础
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../unity3D-learning/学习笔记5-Priests & Devils动作分离版/" title="学习笔记5-Priests & Devils动作分离版" class="md-nav__link">
+      学习笔记5-Priests & Devils动作分离版
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../unity3D-learning/学习笔记6-Hit UFO编程实践/" title="学习笔记6-Hit UFO编程实践" class="md-nav__link">
+      学习笔记6-Hit UFO编程实践
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../unity3D-learning/学习笔记7-自定义Component(Editor)/" title="学习笔记7-自定义Component(Editor)" class="md-nav__link">
+      学习笔记7-自定义Component(Editor)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../unity3D-learning/学习笔记8-adapter模式的打飞碟游戏/" title="学习笔记8-adapter模式的打飞碟游戏" class="md-nav__link">
+      学习笔记8-adapter模式的打飞碟游戏
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../unity3D-learning/学习笔记9-射箭小游戏/" title="学习笔记9-射箭小游戏" class="md-nav__link">
+      学习笔记9-射箭小游戏
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../unity3D-learning/学习笔记10-简单巡逻兵小游戏/" title="学习笔记10-简单巡逻兵小游戏" class="md-nav__link">
+      学习笔记10-简单巡逻兵小游戏
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../unity3D-learning/学习笔记11-粒子光环制作/" title="学习笔记11-粒子光环制作" class="md-nav__link">
+      学习笔记11-粒子光环制作
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../unity3D-learning/学习笔记12-可展开公告版/" title="学习笔记12-可展开公告版" class="md-nav__link">
+      学习笔记12-可展开公告版
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../unity3D-learning/学习笔记13-AR版的坦克对战/" title="学习笔记13-AR版的坦克对战" class="md-nav__link">
+      学习笔记13-AR版的坦克对战
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../unity3D-learning/学习笔记14-网络版坦克大战/" title="学习笔记14-网络版坦克大战" class="md-nav__link">
+      学习笔记14-网络版坦克大战
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Leetcode Note
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Leetcode Note
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Leetcode 327.Count of Range Sum 题解/" title="Leetcode 327题解-Week1" class="md-nav__link">
+      Leetcode 327题解-Week1
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Leetcode 315.Count of Smaller Numbers After Self 题解/" title="Leetcode 315题解-Week2" class="md-nav__link">
+      Leetcode 315题解-Week2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Leetcode 45. Jump Game II 题解/" title="Leetcode 45题解-Week3" class="md-nav__link">
+      Leetcode 45题解-Week3
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Leetcode 765.Couples Holding Hands 题解/" title="Leetcode 765题解-Week4" class="md-nav__link">
+      Leetcode 765题解-Week4
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Leetcode 41. First Missing Positive 题解/" title="Leetcode 41. First Missing Positive-Week5" class="md-nav__link">
+      Leetcode 41. First Missing Positive-Week5
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Leetcode 23. merge-k-sorted-lists 题解 - Week6/" title="Leetcode 23. merge-k-sorted-lists 题解-Week6" class="md-nav__link">
+      Leetcode 23. merge-k-sorted-lists 题解-Week6
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Leetcode 84. Largest Rectangle in Histogram 题解/" title="Leetcode 84. Largest Rectangle in Histogram 题解-Week7" class="md-nav__link">
+      Leetcode 84. Largest Rectangle in Histogram 题解-Week7
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Leetcode 132.Palindrome Partitioning II 题解/" title="Leetcode 132.Palindrome Partitioning II 题解-Week8" class="md-nav__link">
+      Leetcode 132.Palindrome Partitioning II 题解-Week8
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Leetcode 123. Best Time to Buy and Sell Stock III 题解/" title="Leetcode 123. Best Time to Buy and Sell Stock III 题解-Week9" class="md-nav__link">
+      Leetcode 123. Best Time to Buy and Sell Stock III 题解-Week9
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Leetcode 115. Distinct Subsequences 题解/" title="Leetcode 115. Distinct Subsequences 题解-Week10" class="md-nav__link">
+      Leetcode 115. Distinct Subsequences 题解-Week10
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Leetcode 72. Edit Distance 题解/" title="Leetcode 72. Edit Distance 题解-Week11" class="md-nav__link">
+      Leetcode 72. Edit Distance 题解-Week11
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Leetcode 321. Create Maximum Number/" title="Leetcode 321. Create Maximum Number 题解-Week12" class="md-nav__link">
+      Leetcode 321. Create Maximum Number 题解-Week12
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Leetcode 188. Best Time to Buy and Sell Stock IV 题解/" title="Leetcode 188. Best Time to Buy and Sell Stock IV 题解-Week13" class="md-nav__link">
+      Leetcode 188. Best Time to Buy and Sell Stock IV 题解-Week13
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Leetcode 44. Wildcard Matching 题解/" title="Leetcode 44. Wildcard Matching 题解-Week14" class="md-nav__link">
+      Leetcode 44. Wildcard Matching 题解-Week14
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Leetcode 891. Sum of Subsequence Widths 题解/" title="Leetcode 891. Sum of Subsequence Widths 题解-Week15" class="md-nav__link">
+      Leetcode 891. Sum of Subsequence Widths 题解-Week15
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        CFLP_Problem报告
+      </label>
+    
+    <a href="./" title="CFLP_Problem报告" class="md-nav__link md-nav__link--active">
+      CFLP_Problem报告
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="问题描述" class="md-nav__link">
+    问题描述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="问题测例" class="md-nav__link">
+    问题测例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="问题建模" class="md-nav__link">
+    问题建模
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="具体分析" class="md-nav__link">
+    具体分析
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="具体代码" class="md-nav__link">
+    具体代码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="贪心算法" class="md-nav__link">
+    贪心算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="模拟退火算法" class="md-nav__link">
+    模拟退火算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" title="遗传算法" class="md-nav__link">
+    遗传算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" title="比较算法结果" class="md-nav__link">
+    比较算法结果
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      服务计算
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        服务计算
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ServiceComputingOnCloud/MacOS VirtualBox 配置Ubuntu基本环境/" title="MacOS VirtualBox 配置Ubuntu基本环境" class="md-nav__link">
+      MacOS VirtualBox 配置Ubuntu基本环境
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ServiceComputingOnCloud/CentOS Go语言环境安装/" title="CentOS Go语言环境安装" class="md-nav__link">
+      CentOS Go语言环境安装
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ServiceComputingOnCloud/Golang版本的 Selpg/" title="Golang版本的 Selpg" class="md-nav__link">
+      Golang版本的 Selpg
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ServiceComputingOnCloud/Golang使用Travis CI对项目进行持续集成-初体验/" title="Golang使用Travis CI对项目进行持续集成-初体验" class="md-nav__link">
+      Golang使用Travis CI对项目进行持续集成-初体验
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ServiceComputingOnCloud/Github - Travis CI - Docker hub - VPS “不落地”云软件开发流水线实战/" title="Github - Travis CI - Docker hub - VPS “不落地”云软件开发流水线实战" class="md-nav__link">
+      Github - Travis CI - Docker hub - VPS “不落地”云软件开发流水线实战
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ServiceComputingOnCloud/Go-Blog项目体会-使用MOCK服务开发初体验/" title="Go-Blog项目体会-使用MOCK服务开发初体验" class="md-nav__link">
+      Go-Blog项目体会-使用MOCK服务开发初体验
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="问题描述" class="md-nav__link">
+    问题描述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="问题测例" class="md-nav__link">
+    问题测例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="问题建模" class="md-nav__link">
+    问题建模
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="具体分析" class="md-nav__link">
+    具体分析
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="具体代码" class="md-nav__link">
+    具体代码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="贪心算法" class="md-nav__link">
+    贪心算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="模拟退火算法" class="md-nav__link">
+    模拟退火算法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" title="遗传算法" class="md-nav__link">
+    遗传算法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" title="比较算法结果" class="md-nav__link">
+    比较算法结果
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="capacitated-facility-location-problem">Capacitated Facility Location Problem</h1>
+<h3 id="_1">问题描述</h3>
+<p>假设有n个设施和m个客户。 我们希望选择：</p>
+<ol>
+<li>开放的n个设施中的哪一个</li>
+<li>将客户分配给设施</li>
+<li>目标是尽量减少开放成本和分配成本之和。</li>
+<li>分配给设施的总需求量不得超过其容量。</li>
+</ol>
+<h3 id="_2">问题测例</h3>
+<p>一共有71个测试用例，各个用例的格式如下</p>
+<p><img alt="instance" src="../media/15454888141538/instance.png" /></p>
+<h3 id="_3">问题建模</h3>
+<p>根据上面的题目要求，我们可以首先建的数据模型如下</p>
+<p><img alt="improveLatex" src="../media/15454888141538/improveLatex.png" /></p>
+<h3 id="_4">具体分析</h3>
+<p>首先，对于这种np难的问题，显然我们是不可能去通过穷举求得其最优解的，所以，我们希望的是通过我们在算法课程以及人工智能课程上的优化算法对该问题进行求解。</p>
+<p>本来在上面建完模型之后，在这种目标函数以及问题约束十分清晰的条件下，我一开始想到的是把其当成线性优化对其进行求解，但是经过初步操作之后发现其在规模不大的测例中表现良好，但是一旦参数过多，其计算时间就会变得十分久，当变量非常多时,使用该问题求解，求解节点会指数速度增加，某些解花费大量时间也求不出解来, 所以我没有选择线性优化作为最终解法。</p>
+<p>所以这里我们先说说我们这里用到的三种主要的算法</p>
+<h4 id="_5">具体代码</h4>
+<p>具体代码已经上传到个人的Github上</p>
+<p><a href="https://github.com/zhongwq/CFLP/tree/master/src">代码链接</a></p>
+<h4 id="_6">贪心算法</h4>
+<p>首先，我们这里尝试使用贪心算法对我们的问题进行求解，这里我们先简单讲讲我们的算法，我的贪心算法就是维护一个已开启的工厂列表以及一个未开启的工厂列表，每次分别对于已开启的工厂列表和未开启的工厂列表中每个工厂i取对应$min(c_{ij})$即最小的顾客j商品交由i工厂处理的cost，分别取得结果后，我们取$min(c_{i_{open}j}, c_{i_{close}j} + f_i)$即比较 最小的直接使用已开启工厂的开销 以及 最小的使用未使用工厂的开销+打开未使用工厂的开销之间的最小值</p>
+<p>取得了最小值对应用户以及工厂的index后，若是工厂满足用户需求，则我们将用户的需求加到factory的used上，并将用户置为不可用，即把其对应使用工厂的开销全部设置为Double.MAX_VALUE。否则若是用户的需求超出其容量，则我们选择将工厂置为不可用，同理，将其对应用户的开销全部变为Double.MAX_VALUE</p>
+<p>通过这样的贪心算法我们可以较快得到一个还可以的的解</p>
+<h4 id="_7">模拟退火算法</h4>
+<p>这里我使用的是一个人工智能中一个项目中用到的模拟退火算法，通过模拟退火算法，我们对上面贪心算法中得到的结果进行再优化</p>
+<p>这里我们说说我们的模拟退火算法，其算法核心(Annealing)的伪代码如下</p>
+<div class="codehilite"><pre><span></span><span class="n">currentSolution</span> <span class="o">=</span> <span class="n">initial_solution</span><span class="o">()</span> <span class="c1">//这里我们使用贪心算法对解进行初始化</span>
+<span class="k">while</span> <span class="o">(</span><span class="n">currentTemperature</span> <span class="o">&gt;</span> <span class="n">minTemperature</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">internalLoop</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+        <span class="c1">// 通过多邻域操作获得新解</span>
+        <span class="n">newSolution</span> <span class="o">=</span> <span class="n">generateNeighourResult</span><span class="o">();</span>
+        <span class="c1">// 获得新解的cost</span>
+        <span class="kt">double</span> <span class="n">currentEnergy</span> <span class="o">=</span> <span class="n">currentSolution</span><span class="o">.</span><span class="na">cost</span><span class="o">;</span>
+        <span class="kt">double</span> <span class="n">neighbourEnergy</span> <span class="o">=</span> <span class="n">newSolution</span><span class="o">.</span><span class="na">cost</span><span class="o">;</span>
+
+        <span class="c1">// 根据概率查看是否接收新解作为startPoint</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">acceptanceProbability</span><span class="o">(</span><span class="n">currentEnergy</span><span class="o">,</span> <span class="n">neighbourEnergy</span><span class="o">,</span>
+                <span class="n">currentTemperature</span><span class="o">)</span> <span class="o">&gt;</span> <span class="n">Math</span><span class="o">.</span><span class="na">random</span><span class="o">())</span> <span class="o">{</span>
+            <span class="n">currentSolution</span> <span class="o">=</span> <span class="n">newSolution</span><span class="o">;</span>
+        <span class="o">}</span>
+
+        <span class="c1">//若当前解优于最优解，更新bestSolution</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">currentSolution</span><span class="o">.</span><span class="na">cost</span> <span class="o">&lt;</span> <span class="n">bestSolution</span><span class="o">.</span><span class="na">cost</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">bestSolution</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Solution</span><span class="o">(</span><span class="n">currentSolution</span><span class="o">.</span><span class="na">customerDemand</span><span class="o">.</span><span class="na">clone</span><span class="o">(),</span> <span class="n">currentSolution</span><span class="o">.</span><span class="na">cost</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="n">currentTemperature</span> <span class="o">*=</span> <span class="n">coolingRate</span><span class="o">;</span> <span class="c1">// 降温</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>除了上面Annealing的算法，模拟退火中较为关键的还是其领域操作的设计，通过较好设计我们的领域操作，我们就可以使我们的解不断跳出局部最优解，进而得到一个更好的解，这里我使用了4种局部操作，这里比较关键的是第四种局部操作，因为我们通过贪心得到的算法基本已经处在打开同样工厂的解中的较好的位置，简单通过交换用户指派的工厂其实难以得到一个较好的解，通过我们第四种领域操作，我们就可以改变分配的工厂，从工厂维度跳出局部最优，是比较关键的一步</p>
+<div class="codehilite"><pre><span></span>// 简单交换两个顾客指派的工厂
+changeDemandFactory()
+// 逆序交换一段顾客指派的工厂
+reverseDemands()
+// 前后交换两个范围的顾客指派的工厂
+swapTwoSegment()
+// 对用户指派的工厂直接进行变异, 
+// 不止调整用户指派的工厂，
+// 从工厂维度跳出局部最优(关键)
+variation()
+</pre></div>
+
+
+<p>而领域操作的选择则是采用了之前做人工智能项目时老师给的建议，在多种领域操作中随机选择一种领域操作，而因为我们这里较为特殊需要验证解的有效性，所以领域操作得到的新解有可能不可用，需要重新生成新解，这里就通过一个while循环来解决该问题</p>
+<div class="codehilite"><pre><span></span> <span class="kd">public</span> <span class="n">Solution</span> <span class="nf">generateNeighourResult</span><span class="o">()</span> <span class="o">{</span>
+    <span class="n">Solution</span> <span class="n">tmp</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+    <span class="k">while</span> <span class="o">(</span><span class="n">tmp</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">opt</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="o">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">Math</span><span class="o">.</span><span class="na">random</span><span class="o">());</span>
+        <span class="k">switch</span> <span class="o">(</span><span class="n">opt</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">case</span> <span class="mi">0</span><span class="o">:</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="n">changeDemandFactory</span><span class="o">();</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">1</span><span class="o">:</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="n">reverseDemands</span><span class="o">();</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">2</span><span class="o">:</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="n">swapTwoSegment</span><span class="o">();</span>
+                <span class="k">break</span><span class="o">;</span>
+            <span class="k">case</span> <span class="mi">3</span><span class="o">:</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="n">variation</span><span class="o">();</span>
+                <span class="k">break</span><span class="o">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">tmp</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h4 id="_8">遗传算法</h4>
+<p>除了模拟退火算法这种单点搜索算法之外，像遗传算法这种多点搜索算法也可以应用到我们的求解当中。</p>
+<p>遗传算法的基本步骤如下</p>
+<ol>
+<li>根据群体大小，初始化群体(这里做了个优化，一开始用贪心算法生成初始解加入到初始群体中)</li>
+<li>对各个个体进行评价，计算适应度</li>
+<li>从群体中通过选择算子选择父母亲</li>
+<li>对父母亲进行交叉得到新群体</li>
+<li>将变异操作应用到群体中</li>
+<li>选择下一代</li>
+<li>判断是否达到结束代数，未达到则返回2步继续执行，否则跳出循环</li>
+</ol>
+<p>在我的算法中具体为下</p>
+<div class="codehilite"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">genetic</span><span class="o">()</span> <span class="o">{</span>
+    <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="k">this</span><span class="o">.</span><span class="na">inheritance_number</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">oneGenetic</span><span class="o">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span> <span class="c1">//遗传一代</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">private</span> <span class="kt">void</span> <span class="nf">oneGenetic</span><span class="o">(</span><span class="kt">int</span> <span class="n">geneticNumber</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">sonSolutions</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">hybridization</span><span class="o">();</span> <span class="c1">//杂交(包含选择)</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">mutation</span><span class="o">();</span> <span class="c1">//变异一次</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">updateEntity</span><span class="o">();</span>  <span class="c1">//选择(包含计算适应度)</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">chooseBest</span><span class="o">(</span><span class="n">geneticNumber</span><span class="o">);</span> <span class="c1">//择优</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>这里的选择我采用的是轮盘赌算法，而除此之外我个人还加入了精英保留策略，保证算法可以收敛</p>
+<p>交叉部分则较为简单，就是随机选取index1和index2，交换父母的这部分，并查看是否合法，若是一次未生成两个valid子代，继续执行，最多运行10次</p>
+<div class="codehilite"><pre><span></span><span class="cm">/***</span>
+<span class="cm"> * 交叉函数</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Solution</span><span class="o">&gt;</span> <span class="nf">swap</span><span class="o">(</span><span class="n">Solution</span> <span class="n">father</span><span class="o">,</span> <span class="n">Solution</span> <span class="n">mother</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">List</span><span class="o">&lt;</span><span class="n">Solution</span><span class="o">&gt;</span> <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+    <span class="kt">int</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span>
+    <span class="k">while</span> <span class="o">(</span><span class="n">count</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="o">&amp;&amp;</span> <span class="n">result</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="o">)</span> <span class="o">{</span>    <span class="c1">// 若未生成两个valid子代，继续执行，最多运行10次</span>
+        <span class="kt">int</span> <span class="n">index1</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="o">(</span><span class="n">instance</span><span class="o">.</span><span class="na">customerNum</span> <span class="o">*</span> <span class="n">Math</span><span class="o">.</span><span class="na">random</span><span class="o">());</span>
+        <span class="kt">int</span> <span class="n">index2</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="o">(</span><span class="n">instance</span><span class="o">.</span><span class="na">customerNum</span> <span class="o">*</span> <span class="n">Math</span><span class="o">.</span><span class="na">random</span><span class="o">());</span>
+        <span class="k">while</span> <span class="o">(</span><span class="n">index1</span> <span class="o">==</span> <span class="n">index2</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">index1</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="o">(</span><span class="n">instance</span><span class="o">.</span><span class="na">customerNum</span> <span class="o">*</span> <span class="n">Math</span><span class="o">.</span><span class="na">random</span><span class="o">());</span>
+            <span class="n">index2</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="o">(</span><span class="n">instance</span><span class="o">.</span><span class="na">customerNum</span> <span class="o">*</span> <span class="n">Math</span><span class="o">.</span><span class="na">random</span><span class="o">());</span>
+        <span class="o">}</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">index1</span> <span class="o">&gt;</span> <span class="n">index2</span><span class="o">)</span> <span class="o">{</span>
+            <span class="kt">int</span> <span class="n">tmp</span> <span class="o">=</span> <span class="n">index1</span><span class="o">;</span>
+            <span class="n">index1</span> <span class="o">=</span> <span class="n">index2</span><span class="o">;</span>
+            <span class="n">index2</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">;</span>
+        <span class="o">}</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">fatherClone</span> <span class="o">=</span> <span class="n">father</span><span class="o">.</span><span class="na">customerDemand</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+        <span class="kt">int</span><span class="o">[]</span> <span class="n">motherClone</span> <span class="o">=</span> <span class="n">mother</span><span class="o">.</span><span class="na">customerDemand</span><span class="o">.</span><span class="na">clone</span><span class="o">();</span>
+        <span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">index1</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">index2</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+            <span class="n">fatherClone</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">mother</span><span class="o">.</span><span class="na">customerDemand</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+            <span class="n">motherClone</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">=</span> <span class="n">father</span><span class="o">.</span><span class="na">customerDemand</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+        <span class="o">}</span>
+        <span class="kt">double</span> <span class="n">fatherCost</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="na">valid</span><span class="o">(</span><span class="n">fatherClone</span><span class="o">);</span>
+        <span class="kt">double</span> <span class="n">motherCost</span> <span class="o">=</span> <span class="n">instance</span><span class="o">.</span><span class="na">valid</span><span class="o">(</span><span class="n">motherClone</span><span class="o">);</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">fatherCost</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Solution</span><span class="o">(</span><span class="n">fatherClone</span><span class="o">,</span> <span class="n">fatherCost</span><span class="o">));</span>
+        <span class="o">}</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">motherCost</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">result</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Solution</span><span class="o">(</span><span class="n">motherClone</span><span class="o">,</span> <span class="n">motherCost</span><span class="o">));</span>
+        <span class="o">}</span>
+        <span class="o">++</span><span class="n">count</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>变异部分则是随机选取一个顾客，改变他的分配的工厂</p>
+<div class="codehilite"><pre><span></span><span class="cm">/***</span>
+<span class="cm"> * 变异函数</span>
+<span class="cm"> */</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">oneVariable</span><span class="o">(</span><span class="n">Solution</span> <span class="n">solution</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="o">(</span><span class="n">instance</span><span class="o">.</span><span class="na">customerNum</span> <span class="o">*</span> <span class="n">Math</span><span class="o">.</span><span class="na">random</span><span class="o">());</span>
+    <span class="kt">int</span> <span class="n">factoryIndex</span> <span class="o">=</span> <span class="o">(</span><span class="kt">int</span><span class="o">)</span> <span class="o">(</span><span class="n">instance</span><span class="o">.</span><span class="na">factoryNum</span> <span class="o">*</span> <span class="n">Math</span><span class="o">.</span><span class="na">random</span><span class="o">());</span>
+    <span class="n">solution</span><span class="o">.</span><span class="na">customerDemand</span><span class="o">[</span><span class="n">index</span><span class="o">]</span> <span class="o">=</span> <span class="n">factoryIndex</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>到这里遗传算法基本完成</p>
+<h3 id="_9">比较算法结果</h3>
+<p>分别的对应每种算法的具体结果(带工厂状态和顾客分配结果)已经放到了Github仓库中</p>
+<p><a href="https://github.com/zhongwq/CFLP/tree/master/result">分析结果链接</a></p>
+<p>可以看到单纯贪心算法的耗时十分之少，有些简单的测例甚至显示time为0, 但是其求出的解显然不是较优解，SA和GA从结果上比较，各有千秋，但是显然通过优化算法求解，我们的解要比贪心算法求出的解好上不少。</p>
+<p>从我们的运行时间来看操作较少的贪心算法显然时间最少。模拟退火以及遗传算法时间相近，不过这也要看参数调整结果，比如GA算法，群体的大小、变异率以及遗传的代数对程序运行时间的影响都很大，最终经过调整参数，群体的大小被我设置为100，变异率设置为0.3，遗传代数设置为1000，因为我发现基本1000代之后算法就基本收敛，经过验证效果良好，程序运行时间大大减少，SA的话运行时间收到初始温度、结束温度、单次迭代次数以及降温系数影响，这里经过调参初始温度我设置为了100，结束温度设置为0.001，单次迭代(内循环)次数我则设置为了500，降温系数为0.99</p>
+<p><img alt="" src="../media/15454888141538/15455321192451.jpg" /></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../Leetcode 891. Sum of Subsequence Widths 题解/" title="Leetcode 891. Sum of Subsequence Widths 题解-Week15" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Leetcode 891. Sum of Subsequence Widths 题解-Week15
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../ServiceComputingOnCloud/MacOS VirtualBox 配置Ubuntu基本环境/" title="MacOS VirtualBox 配置Ubuntu基本环境" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                MacOS VirtualBox 配置Ubuntu基本环境
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2018 - 2019 Zhong Wenqian
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.583bbe55.js"></script>
+      
+      <script>app.initialize({version:"1.0.3",url:{base:"../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>
