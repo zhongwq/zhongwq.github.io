@@ -226,7 +226,17 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://zhongwq.github.io/SystemAnalysis/Node.js joi使用/</loc>
+     <lastmod>2019-06-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://zhongwq.github.io/SystemAnalysis/前端多端适配初识/</loc>
+     <lastmod>2019-06-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://zhongwq.github.io/SystemAnalysis/Node.js Multer使用/</loc>
      <lastmod>2019-06-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
