@@ -241,6 +241,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>https://zhongwq.github.io/SystemAnalysis/Mac下docker访问主机服务/</loc>
+     <lastmod>2019-06-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>https://zhongwq.github.io/SystemAnalysis/后端项目容器化(依赖关系镜像中docker-compose书写)-DockerFile学习之路/</loc>
      <lastmod>2019-06-28</lastmod>
      <changefreq>daily</changefreq>

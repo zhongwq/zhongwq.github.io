@@ -13,7 +13,7 @@
         <meta name="description" content="A site for me to put posts.">
       
       
-        <link rel="canonical" href="https://zhongwq.github.io/SystemAnalysis/Vue前端路由鉴权的使用/">
+        <link rel="canonical" href="https://zhongwq.github.io/SystemAnalysis/Mac下docker访问主机服务/">
       
       
         <meta name="author" content="Zhong Wenqian">
@@ -42,7 +42,7 @@
     
     
       
-        <title>Vue前端路由鉴权的使用 - Zhongwq's Site</title>
+        <title>Mac下docker访问主机服务 - Zhongwq's Site</title>
       
     
     
@@ -85,7 +85,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="../../#vue" tabindex="1" class="md-skip">
+      <a href="../../#macdocker" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -111,7 +111,7 @@
                 Zhongwq's Site
               </span>
               <span class="md-header-nav__topic">
-                Vue前端路由鉴权的使用
+                Mac下docker访问主机服务
               </span>
             
           
@@ -825,56 +825,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Vue前端路由鉴权的使用
-      </label>
-    
-    <a href="./" title="Vue前端路由鉴权的使用" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../Vue前端路由鉴权的使用/" title="Vue前端路由鉴权的使用" class="md-nav__link">
       Vue前端路由鉴权的使用
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#vue_1" title="vue项目前端鉴权方式" class="md-nav__link">
-    vue项目前端鉴权方式
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" title="路由导航守卫中拦截" class="md-nav__link">
-    路由导航守卫中拦截
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -918,11 +873,62 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../Mac下docker访问主机服务/" title="Mac下docker访问主机服务" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Mac下docker访问主机服务
+      </label>
+    
+    <a href="./" title="Mac下docker访问主机服务" class="md-nav__link md-nav__link--active">
       Mac下docker访问主机服务
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mac" title="我们想要从我们的镜像来访问我们的Mac主机的服务" class="md-nav__link">
+    我们想要从我们的镜像来访问我们的Mac主机的服务
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reference" title="Reference" class="md-nav__link">
+    Reference
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -964,16 +970,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#vue_1" title="vue项目前端鉴权方式" class="md-nav__link">
-    vue项目前端鉴权方式
+  <a href="#mac" title="我们想要从我们的镜像来访问我们的Mac主机的服务" class="md-nav__link">
+    我们想要从我们的镜像来访问我们的Mac主机的服务
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reference" title="Reference" class="md-nav__link">
+    Reference
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" title="路由导航守卫中拦截" class="md-nav__link">
-    路由导航守卫中拦截
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -994,60 +1006,40 @@
               
                 
                 
-                <h1 id="vue">Vue前端路由鉴权的使用</h1>
-<h3 id="vue_1">vue项目前端鉴权方式</h3>
-<p>vue项目前端鉴权方式常用的有以下三种：</p>
-<ol>
-<li>
-<p>渲染菜单时控制模块按钮的显示隐藏（不足：直接输入链接仍然可以访问模块）</p>
-</li>
-<li>
-<p>在路由导航守卫中拦截，针对没有权限的模块进行重定向（不足：每次访问模块都需要鉴定权限，模块数量过多时会影响系统性能）</p>
-</li>
-<li>
-<p>借助vue-router 2.x版本新加的API addRouters动态添加路由信息（不足：首次加载需要解析和添加，多跳转一次路由）</p>
-</li>
-</ol>
-<h3 id="_1">路由导航守卫中拦截</h3>
-<p>这里我先讲讲我们项目中用到的路由鉴权方式，这里我们主要用到我们Vue Router中的router.beforeEach, 这个函数的作用就是注册一个全局前置守卫</p>
-<p>当一个导航触发时，全局前置守卫按照创建顺序调用。守卫是异步解析执行，此时导航在所有守卫 resolve 完之前一直处于 等待中。</p>
-<p>每个守卫方法接收三个参数：</p>
-<ul>
-<li>
-<p>to: Route: 即将要进入的目标 路由对象</p>
-</li>
-<li>
-<p>from: Route: 当前导航正要离开的路由</p>
-</li>
-<li>
-<p>next: Function: 一定要调用该方法来 resolve 这个钩子。执行效果依赖 next 方法的调用参数。</p>
-</li>
-</ul>
-<div class="codehilite"><pre><span></span>router.beforeEach((to, from, next) =&gt; {
-  if (to.matched.some(record =&gt; record.meta.requiresAuth)) {
-    if (!sessionStorage || !sessionStorage.getItem(&#39;token&#39;)) {
-      next(&#39;/login&#39;)
-    } else {
-      next()
+                <h1 id="macdocker">Mac下docker访问主机服务</h1>
+<p>这里说一下我使用Mac时在使用docker环境中遇到的问题，就是Mac的docker在网络堆栈中的限制，导致的无法直接通过172.17.0.1即docker0的网卡ip来访问本机的服务</p>
+<p>那么我们有没什么解决的方法呢？</p>
+<p>这里根据我们实际的使用情景有以下主要的解决方案</p>
+<h4 id="mac">我们想要从我们的镜像来访问我们的Mac主机的服务</h4>
+<p>由于mac中docker的网络时在Docker Desktop for mac,中实现的，我们无法在我们的主机上看到docker0这个网口，但其实这个接口实际上在虚拟机中。我们想实现这个镜像来访问我们的Mac主机的服务，我们需要查看docker的文档，我们从文档中可以得知，在18.03开始以后的所有版本中，docker官方推荐我们通过<code>host.docker.internal</code>这个DNS来对于我们的服务进行访问，同样的<code>gateway.docker.internal</code>也可以，我们在使用的时候只需要设置我们的host为这个就可以正常使用了</p>
+<p>如下, 这个在我们最后上线ubuntu服务器时，只需要我们在docker-compse中设置对应环境变量，就可以覆盖后者了</p>
+<div class="codehilite"><pre><span></span><span class="k">module</span>.<span class="n">exports</span> = {
+  <span class="n">port:</span> <span class="mi">4000</span>,
+  <span class="n">db:</span> {
+    <span class="n">user:</span> <span class="n">process</span>.<span class="n">env</span>.<span class="n">USER</span> || <span class="s">&#39;YourDBUser&#39;</span>,
+    <span class="n">password:</span> <span class="n">process</span>.<span class="n">env</span>.<span class="n">PASSWORD</span> || <span class="s">&#39;YourDBPassword&#39;</span>,
+    <span class="n">database:</span> <span class="n">process</span>.<span class="n">env</span>.<span class="n">DATABASE</span> || <span class="s">&#39;YourDBName&#39;</span>,
+    <span class="n">options:</span> {
+      <span class="n">dialect:</span> <span class="n">process</span>.<span class="n">env</span>.<span class="n">DIALECT</span> || <span class="s">&#39;host.docker.internal&#39;</span>,
+      <span class="n">host:</span> <span class="n">process</span>.<span class="n">env</span>.<span class="n">HOST</span> || <span class="s">&#39;mysql&#39;</span>,
+      <span class="n">port:</span> <span class="mi">3306</span>,
+      <span class="n">define:</span> {
+        <span class="n">charset:</span> <span class="s">&#39;utf8mb4&#39;</span>,
+        <span class="n">collate:</span> <span class="s">&#39;utf8mb4_unicode_ci&#39;</span>,
+        <span class="n">supportBigNumbers:</span> <span class="nb">true</span>,
+        <span class="n">bigNumberStrings:</span> <span class="nb">true</span>
+      }
     }
-  } else {
-    next()
+  },
+  <span class="n">authServiceToken:</span> {
+    <span class="n">secretKey:</span> <span class="n">process</span>.<span class="n">env</span>.<span class="n">SECRET</span> || <span class="s">&#39;secret&#39;</span>
   }
-})
-</pre></div>
-
-
-<p>可以看到我们这里弄了一个优化，我们使用record.meta.requiresAuth来查看我们前往的路由是否是需要鉴权的，在这基础之上，我们添加需要鉴权的路由时，无需在这个函数进行修改，我们只需要给我们路由添加meta信息如下</p>
-<div class="codehilite"><pre><span></span>{
-    path: &#39;/user/settings&#39;,
-    name: &#39;Settings&#39;,
-    meta: { requiresAuth: true },
-    component: Settings
 }
 </pre></div>
 
 
-<p>这样，我们就实现了我们前端的鉴权了</p>
+<h5 id="reference">Reference</h5>
+<p><a href="https://docs.docker.com/docker-for-mac/networking/">Networking features in Docker Desktop for Mac</a></p>
                 
                   
                 
@@ -1068,7 +1060,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../系统设计与分析 Homework3/" title="系统设计与分析 Homework3" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../Node.js Multer使用/" title="Node.js Multer使用" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1077,19 +1069,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                系统设计与分析 Homework3
+                Node.js Multer使用
               </span>
             </div>
           </a>
         
         
-          <a href="../Node.js joi使用/" title="Node.js joi使用" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../后端项目容器化(依赖关系镜像中docker-compose书写)-DockerFile学习之路/" title="后端项目容器化(依赖关系镜像中docker-compose书写)-DockerFile学习之路" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Node.js joi使用
+                后端项目容器化(依赖关系镜像中docker-compose书写)-DockerFile学习之路
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
